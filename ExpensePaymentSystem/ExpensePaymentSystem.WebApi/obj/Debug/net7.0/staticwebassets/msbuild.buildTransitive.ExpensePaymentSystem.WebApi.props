@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/ExpensePaymentSystem.WebApi.props" />
+</Project>

@@ -1,0 +1,14 @@
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/bin/Debug/net7.0/ExpensePaymentSystem.Data.deps.json
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/bin/Debug/net7.0/ExpensePaymentSystem.Data.runtimeconfig.json
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/bin/Debug/net7.0/ExpensePaymentSystem.Data.dll
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/bin/Debug/net7.0/ExpensePaymentSystem.Data.pdb
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/ExpensePaymentSystem.Data.csproj.AssemblyReference.cache
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/ExpensePaymentSystem.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/ExpensePaymentSystem.Data.AssemblyInfoInputs.cache
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/ExpensePaymentSystem.Data.AssemblyInfo.cs
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/ExpensePaymentSystem.Data.csproj.CoreCompileInputs.cache
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/ExpensePaymentSystem.Data.dll
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/refint/ExpensePaymentSystem.Data.dll
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/ExpensePaymentSystem.Data.pdb
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/ExpensePaymentSystem.Data.genruntimeconfig.cache
+/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/Debug/net7.0/ref/ExpensePaymentSystem.Data.dll

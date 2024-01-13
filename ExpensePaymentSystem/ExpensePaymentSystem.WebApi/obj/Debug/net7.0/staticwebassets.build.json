@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "E0IbZX7tzuB4k0SB7Nqdmd/VRszDnGJLE4aAchunL2c=",
+  "Source": "ExpensePaymentSystem.WebApi",
+  "BasePath": "_content/ExpensePaymentSystem.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
