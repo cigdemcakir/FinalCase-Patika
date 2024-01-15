@@ -6,4 +6,7 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\ExpensePaymentSystem.Base\ExpensePaymentSystem.Base.csproj" />
+    </ItemGroup>
 </Project>

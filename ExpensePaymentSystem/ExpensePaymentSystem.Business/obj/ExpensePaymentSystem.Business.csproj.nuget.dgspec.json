@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Business/ExpensePaymentSystem.Business.csproj": {}
+    "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/ExpensePaymentSystem.Business.csproj": {}
   },
   "projects": {
-    "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Business/ExpensePaymentSystem.Business.csproj": {
+    "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/ExpensePaymentSystem.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Business/ExpensePaymentSystem.Business.csproj",
+        "projectUniqueName": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/ExpensePaymentSystem.Business.csproj",
         "projectName": "ExpensePaymentSystem.Business",
-        "projectPath": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Business/ExpensePaymentSystem.Business.csproj",
+        "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/ExpensePaymentSystem.Business.csproj",
         "packagesPath": "/Users/Levent/.nuget/packages/",
-        "outputPath": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Business/obj/",
+        "outputPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Levent/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {
-                "projectPath": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj"
+              "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {
+                "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj"
               }
             }
           }
@@ -41,6 +41,40 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[9.5.2, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[9.5.2, )"
+            },
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.7.28, )"
+            },
+            "Hangfire.PostgreSql": {
+              "target": "Package",
+              "version": "[1.9.8, )"
+            },
+            "Hangfire.PostgreSql.Npgsql5": {
+              "target": "Package",
+              "version": "[1.9.8, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,14 +95,14 @@
         }
       }
     },
-    "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {
+    "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
+        "projectUniqueName": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
         "projectName": "ExpensePaymentSystem.Data",
-        "projectPath": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
+        "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
         "packagesPath": "/Users/Levent/.nuget/packages/",
-        "outputPath": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/",
+        "outputPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Levent/.nuget/NuGet/NuGet.Config"

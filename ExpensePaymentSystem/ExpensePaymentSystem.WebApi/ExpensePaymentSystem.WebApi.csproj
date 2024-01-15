@@ -10,6 +10,7 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.8" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />
+        <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.11" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
@@ -43,6 +44,7 @@
     <ItemGroup>
         <ProjectReference Include="..\ExpensePaymentSystem.Business\ExpensePaymentSystem.Business.csproj" />
         <ProjectReference Include="..\ExpensePaymentSystem.Data\ExpensePaymentSystem.Data.csproj" />
+        <ProjectReference Include="..\ExpensePaymentSystem.Schema\ExpensePaymentSystem.Schema.csproj" />
     </ItemGroup>
 
 

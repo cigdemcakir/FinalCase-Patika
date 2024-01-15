@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fGTzOXy4pSrC1k2Z0IVIlAeV4V/+RYn5aHks9x8u4j6BXDDYYK5kdngkqRDdDny6queDkuX92s1I8l7qOJ2Xfg==",
+  "dgSpecHash": "/qys8uB0T28RmBdbQ1/TBcis/dAlQaiYmB2gFXQMR9TGVnezbdyd4xRFS4oKzUgDiKsTfeAsO4Yv20dsviowIQ==",
   "success": true,
-  "projectFilePath": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
+  "projectFilePath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
   "expectedPackageFiles": [
     "/Users/Levent/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/Levent/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",

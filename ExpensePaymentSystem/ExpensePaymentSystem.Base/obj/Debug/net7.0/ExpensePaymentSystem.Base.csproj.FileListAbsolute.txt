@@ -10,3 +10,15 @@
 /Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/refint/ExpensePaymentSystem.Base.dll
 /Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ExpensePaymentSystem.Base.pdb
 /Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ref/ExpensePaymentSystem.Base.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/bin/Debug/net7.0/ExpensePaymentSystem.Base.deps.json
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/bin/Debug/net7.0/ExpensePaymentSystem.Base.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/bin/Debug/net7.0/ExpensePaymentSystem.Base.pdb
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ExpensePaymentSystem.Base.csproj.AssemblyReference.cache
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ExpensePaymentSystem.Base.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ExpensePaymentSystem.Base.AssemblyInfoInputs.cache
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ExpensePaymentSystem.Base.AssemblyInfo.cs
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ExpensePaymentSystem.Base.csproj.CoreCompileInputs.cache
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ExpensePaymentSystem.Base.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/refint/ExpensePaymentSystem.Base.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ExpensePaymentSystem.Base.pdb
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/obj/Debug/net7.0/ref/ExpensePaymentSystem.Base.dll

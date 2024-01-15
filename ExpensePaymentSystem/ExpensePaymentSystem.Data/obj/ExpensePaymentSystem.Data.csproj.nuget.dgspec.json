@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {}
+    "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {}
   },
   "projects": {
-    "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {
+    "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
+        "projectUniqueName": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
         "projectName": "ExpensePaymentSystem.Data",
-        "projectPath": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
+        "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj",
         "packagesPath": "/Users/Levent/.nuget/packages/",
-        "outputPath": "/Users/Levent/Desktop/expensepaymentsystem/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/",
+        "outputPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Levent/.nuget/NuGet/NuGet.Config"
