@@ -26,7 +26,7 @@ public class AuthorizationService : IAuthorizationService
     {
         // Validate the user in the database
         var user = await _context.Users
-                                 .SingleOrDefaultAsync(u => u.Username == username && u.Password == password);
+                                 .SingleOrDefaultAsync(u => u.UserName == username && u.Password == password);
         if (user == null)
         {
             return null; // User not found or password incorrect
@@ -60,7 +60,7 @@ public class AuthorizationService : IAuthorizationService
         {
             Subject = new ClaimsIdentity(new Claim[] 
             {
-                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Name, user.UserName),
                 // Add other claims as needed
             }),
             Expires = DateTime.UtcNow.AddDays(7),

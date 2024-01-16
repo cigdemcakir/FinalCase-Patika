@@ -28,3 +28,7 @@
 /Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/obj/Debug/net7.0/refint/ExpensePaymentSystem.Business.dll
 /Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/obj/Debug/net7.0/ExpensePaymentSystem.Business.pdb
 /Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/obj/Debug/net7.0/ref/ExpensePaymentSystem.Business.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/bin/Debug/net7.0/ExpensePaymentSystem.Base.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/bin/Debug/net7.0/ExpensePaymentSystem.Schema.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/bin/Debug/net7.0/ExpensePaymentSystem.Base.pdb
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Business/bin/Debug/net7.0/ExpensePaymentSystem.Schema.pdb

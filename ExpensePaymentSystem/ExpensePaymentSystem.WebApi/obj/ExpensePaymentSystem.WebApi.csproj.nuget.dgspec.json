@@ -101,8 +101,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
+              "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/ExpensePaymentSystem.Base.csproj": {
+                "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/ExpensePaymentSystem.Base.csproj"
+              },
               "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {
                 "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj"
+              },
+              "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Schema/ExpensePaymentSystem.Schema.csproj": {
+                "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Schema/ExpensePaymentSystem.Schema.csproj"
               }
             }
           }
@@ -191,7 +197,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/ExpensePaymentSystem.Base.csproj": {
+                "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/ExpensePaymentSystem.Base.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -269,6 +279,9 @@
             "projectReferences": {
               "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/ExpensePaymentSystem.Base.csproj": {
                 "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Base/ExpensePaymentSystem.Base.csproj"
+              },
+              "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj": {
+                "projectPath": "/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Data/ExpensePaymentSystem.Data.csproj"
               }
             }
           }

@@ -1,5 +1,9 @@
+using ExpensePaymentSystem.Base.Response;
+using ExpensePaymentSystem.Business.Cqrs;
 using ExpensePaymentSystem.Business.Interfaces;
 using ExpensePaymentSystem.Data.Entity;
+using ExpensePaymentSystem.Schema;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExpensePaymentSystem.WebApi.Controllers;
@@ -11,15 +15,15 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly IMediator _mediator;
 
         /// <summary>
         /// Constructor to initialize the UserController with IUserService.
         /// </summary>
         /// <param name="userService">The user service to handle user-related operations.</param>
-        public UserController(IUserService userService)
+        public UserController(IMediator mediator)
         {
-            _userService = userService;
+            _mediator = mediator;
         }
 
         /// <summary>
@@ -27,10 +31,11 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// </summary>
         /// <returns>A list of user objects.</returns>
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        public async Task<ApiResponse<List<UserResponse>>> GetUsers()
         {
-            var users = await _userService.GetAllUsersAsync();
-            return Ok(users);
+            var operation = new GetAllUserQuery();
+            var result = await _mediator.Send(operation);
+            return result;
         }
 
         /// <summary>
@@ -39,15 +44,11 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="userId">The ID of the user to retrieve.</param>
         /// <returns>The user object with the specified ID.</returns>
         [HttpGet("{userId}")]
-        public async Task<IActionResult> GetUserById(int userId)
+        public async Task<ApiResponse<UserResponse>> GetUserById(int userId)
         {
-            var user = await _userService.GetUserByIdAsync(userId);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(user);
+            var operation = new GetUserByIdQuery(userId);
+            var result = await _mediator.Send(operation);
+            return result;
         }
 
         /// <summary>
@@ -56,10 +57,11 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="user">The user object to create.</param>
         /// <returns>The created user object.</returns>
         [HttpPost]
-        public async Task<IActionResult> CreateUser(User user)
+        public async Task<ApiResponse<UserResponse>> CreateUser([FromBody] UserRequest User)
         {
-            var createdUser = await _userService.CreateUserAsync(user);
-            return CreatedAtAction(nameof(GetUserById), new { userId = createdUser.UserId }, createdUser);
+            var operation = new CreateUserCommand(User);
+            var result = await _mediator.Send(operation);
+            return result;
         }
 
         /// <summary>
@@ -69,15 +71,11 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="user">The updated user object.</param>
         /// <returns>The updated user object.</returns>
         [HttpPut("{userId}")]
-        public async Task<IActionResult> UpdateUser(int userId, User user)
+        public async Task<ApiResponse> UpdateUser(int userId, [FromBody] UserRequest User)
         {
-            var updatedUser = await _userService.UpdateUserAsync(userId, user);
-            if (updatedUser == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(updatedUser);
+            var operation = new UpdateUserCommand(userId ,User);
+            var result = await _mediator.Send(operation);
+            return result;
         }
 
         /// <summary>
@@ -86,14 +84,10 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="userId">The ID of the user to delete.</param>
         /// <returns>No content if successful, or not found if the user doesn't exist.</returns>
         [HttpDelete("{userId}")]
-        public async Task<IActionResult> DeleteUser(int userId)
+        public async Task<ApiResponse> DeleteUser(int userId)
         {
-            var result = await _userService.DeleteUserAsync(userId);
-            if (result)
-            {
-                return NoContent();
-            }
-
-            return NotFound();
+            var operation = new DeleteUserCommand(userId);
+            var result = await _mediator.Send(operation);
+            return result;
         }
     }

@@ -1,7 +1,13 @@
+using System.Reflection;
 using System.Text;
+using AutoMapper;
+using ExpensePaymentSystem.Business.Cqrs;
 using ExpensePaymentSystem.Business.Interfaces;
+using ExpensePaymentSystem.Business.Mapper;
 using ExpensePaymentSystem.Business.Services;
 using ExpensePaymentSystem.Data.DbContext;
+using ExpensePaymentSystem.WebApi.Middlewares;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -20,21 +26,28 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        //string connection = Configuration.GetConnectionString("MsSqlConnection");
+        string connection = Configuration.GetConnectionString("MsSqlConnection");
         
-        //services.AddDbContext<ExpensePaymentSystemDbContext>(options => options.UseSqlServer(connection));
-        //services.AddDbContext<VbDbContext>(options => options.UseNpgsql(connection));
+        services.AddDbContext<ExpensePaymentSystemDbContext>(options => options.UseSqlServer(connection));
+        //services.AddDbContext<ExpensePaymentSystemDbContext>(options => options.UseNpgsql(connection));
         
-        //services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateCustomerCommand).GetTypeInfo().Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateUserCommand).GetTypeInfo().Assembly));
 
-        //var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new MapperConfig()));
-        //services.AddSingleton(mapperConfig.CreateMapper());
+        // services.AddMediatR(cfg => {
+        //
+        //     cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+        //
+        // });
+
+        var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new MapperConfig()));
+        services.AddSingleton(mapperConfig.CreateMapper());
 
 
         // services.AddControllers().AddFluentValidation(x =>
         // {
         //     x.RegisterValidatorsFromAssemblyContaining<CreateCustomerValidator>();
         // });
+        
         services.AddControllers();
 
         services.AddEndpointsApiExplorer();
@@ -44,7 +57,7 @@ public class Startup
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vb Api Management", Version = "v1.0" });
 
-            /*var securityScheme = new OpenApiSecurityScheme
+            var securityScheme = new OpenApiSecurityScheme
             {
                 Name = "Vb Management for IT Company",
                 Description = "Enter JWT Bearer token **_only_**",
@@ -62,7 +75,7 @@ public class Startup
             c.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
                 { securityScheme, new string[] { } }
-            });*/
+            });
         });
         
 
@@ -110,7 +123,7 @@ public class Startup
         }
 
         // app.UseMiddleware<HeartBeatMiddleware>(); 
-        // app.UseMiddleware<ErrorHandlerMiddleware>(); 
+        app.UseMiddleware<ErrorHandlerMiddleware>(); 
         
         app.UseHttpsRedirection();
 

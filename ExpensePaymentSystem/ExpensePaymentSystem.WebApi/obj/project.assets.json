@@ -4747,7 +4747,9 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "AutoMapper": "12.0.0",
+          "ExpensePaymentSystem.Base": "1.0.0",
           "ExpensePaymentSystem.Data": "1.0.0",
+          "ExpensePaymentSystem.Schema": "1.0.0",
           "FluentValidation.AspNetCore": "9.5.2",
           "FluentValidation.DependencyInjectionExtensions": "9.5.2",
           "Hangfire": "1.7.28",
@@ -4767,6 +4769,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "ExpensePaymentSystem.Base": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.14",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14"
         },
@@ -4781,7 +4784,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "ExpensePaymentSystem.Base": "1.0.0"
+          "ExpensePaymentSystem.Base": "1.0.0",
+          "ExpensePaymentSystem.Data": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ExpensePaymentSystem.Schema.dll": {}

@@ -25,3 +25,5 @@
 /Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Schema/bin/Debug/net7.0/ExpensePaymentSystem.Base.dll
 /Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Schema/bin/Debug/net7.0/ExpensePaymentSystem.Base.pdb
 /Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Schema/obj/Debug/net7.0/ExpensePaymentSystem.Schema.csproj.CopyComplete
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Schema/bin/Debug/net7.0/ExpensePaymentSystem.Data.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.Schema/bin/Debug/net7.0/ExpensePaymentSystem.Data.pdb

@@ -1,25 +1,29 @@
+using System.ComponentModel.DataAnnotations.Schema;
+using ExpensePaymentSystem.Base.Entity;
+using ExpensePaymentSystem.Base.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ExpensePaymentSystem.Data.Entity;
 
-public class Expense
+[Table("Expense", Schema = "dbo")]
+public class Expense 
 {
     public int ExpenseId { get; set; }
     public int UserId { get; set; }
-    public int CategoryId { get; set; }
     public decimal Amount { get; set; }
     public DateTime Date { get; set; }
     public string Description { get; set; }
-    public string Status { get; set; } // Örneğin: "Approved", "Rejected", "Pending"
-    public string RejectionReason { get; set; } // Reddedilme nedeni
-
-    public User User { get; set; }
-    public ExpenseCategory Category { get; set; }
-    
-    // Payment ile ilişkili property'ler
+    public string Category { get; set; }
+    public ExpenseStatus Status { get; set; } 
+    public string? RejectionReason { get; set; } // Reddedilme nedeni
+    public virtual User User { get; set; }
     public int? PaymentId { get; set; } // Nullable, çünkü her masrafın bir ödemesi olmayabilir
-    public Payment Payment { get; set; }
+    public virtual Payment Payment { get; set; }
+    public int? ReportId { get; set; }
+    public virtual Report Report { get; set; }
+    
+    
 }
 
 public class ExpenseConfiguration : IEntityTypeConfiguration<Expense>
@@ -28,30 +32,33 @@ public class ExpenseConfiguration : IEntityTypeConfiguration<Expense>
     {
         builder.HasKey(e => e.ExpenseId);
 
-        builder.Property(e => e.Amount)
-            .IsRequired()
-            .HasColumnType("decimal(18, 2)");
+        builder.Property(e => e.Amount).IsRequired().HasColumnType("decimal(18, 2)");
+        builder.Property(e => e.RejectionReason).HasMaxLength(100);
+        builder.Property(e => e.Category).HasMaxLength(50);
 
         builder.Property(e => e.Date)
             .IsRequired()
-            .HasColumnType("datetime");
+            .HasColumnType("datetime2");
 
         builder.Property(e => e.Description)
-            .HasMaxLength(500);
+            .HasMaxLength(100);
 
         builder.Property(e => e.Status)
             .IsRequired()
-            .HasMaxLength(20);
-
-        builder.Property(e => e.RejectionReason)
-            .HasMaxLength(500);
+            .HasConversion<int>();
 
         builder.HasOne(e => e.User)
             .WithMany(u => u.Expenses)
             .HasForeignKey(e => e.UserId);
 
-        builder.HasOne(e => e.Category)
-            .WithMany(c => c.Expenses)
-            .HasForeignKey(e => e.CategoryId);
+        builder.HasOne(e => e.Payment)
+            .WithOne(p => p.Expense)
+            .HasForeignKey<Expense>(e => e.PaymentId);
+
+        builder.HasOne(e => e.Report)
+            .WithMany(r => r.Expenses)
+            .HasForeignKey(e => e.ReportId);
     }
 }
+
+

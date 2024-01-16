@@ -1,5 +1,9 @@
+using ExpensePaymentSystem.Base.Response;
+using ExpensePaymentSystem.Business.Cqrs;
 using ExpensePaymentSystem.Business.Interfaces;
 using ExpensePaymentSystem.Data.Entity;
+using ExpensePaymentSystem.Schema;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExpensePaymentSystem.WebApi.Controllers;
@@ -11,15 +15,15 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
     [ApiController]
     public class PaymentController : ControllerBase
     {
-        private readonly IPaymentService _paymentService;
+        private readonly IMediator _mediator;
 
         /// <summary>
         /// Constructor to initialize the PaymentController with IPaymentService.
         /// </summary>
         /// <param name="paymentService">The payment service to handle payment-related operations.</param>
-        public PaymentController(IPaymentService paymentService)
+        public PaymentController(IMediator mediator)
         {
-            _paymentService = paymentService;
+            _mediator = mediator;
         }
 
         /// <summary>
@@ -27,10 +31,11 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// </summary>
         /// <returns>A list of payment objects.</returns>
         [HttpGet]
-        public async Task<IActionResult> GetPayments()
+        public async Task<ApiResponse<List<PaymentResponse>>> Get()
         {
-            var payments = await _paymentService.GetAllPaymentsAsync();
-            return Ok(payments);
+            var operation = new GetAllPaymentQuery();
+            var result = await _mediator.Send(operation);
+            return result;
         }
 
         /// <summary>
@@ -39,15 +44,11 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="paymentId">The ID of the payment to retrieve.</param>
         /// <returns>The payment object with the specified ID.</returns>
         [HttpGet("{paymentId}")]
-        public async Task<IActionResult> GetPaymentById(int paymentId)
+        public async  Task<ApiResponse<PaymentResponse>> GetPaymentById(int paymentId)
         {
-            var payment = await _paymentService.GetPaymentByIdAsync(paymentId);
-            if (payment == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(payment);
+            var operation = new GetPaymentByIdQuery(paymentId);
+            var result = await _mediator.Send(operation);
+            return result;
         }
 
         /// <summary>
@@ -56,11 +57,11 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="payment">The payment object to create.</param>
         /// <returns>The created payment object.</returns>
         [HttpPost]
-        public async Task<IActionResult> CreatePayment(Payment payment)
+        public async Task<ApiResponse<PaymentResponse>> CreatePayment([FromBody] PaymentRequest Contact)
         {
-            var createdPayment = await _paymentService.CreatePaymentAsync(payment);
-            return CreatedAtAction(nameof(GetPaymentById), new { paymentId = createdPayment.PaymentId }, createdPayment);
-        }
+            var operation = new CreatePaymentCommand(Contact);
+            var result = await _mediator.Send(operation);
+            return result; }
 
         /// <summary>
         /// Update an existing payment.
@@ -69,15 +70,11 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="payment">The updated payment object.</param>
         /// <returns>The updated payment object.</returns>
         [HttpPut("{paymentId}")]
-        public async Task<IActionResult> UpdatePayment(int paymentId, Payment payment)
+        public async Task<ApiResponse> UpdatePayment(int paymentId, [FromBody] PaymentRequest Contact)
         {
-            var updatedPayment = await _paymentService.UpdatePaymentAsync(paymentId, payment);
-            if (updatedPayment == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(updatedPayment);
+            var operation = new UpdatePaymentCommand(paymentId, Contact);
+            var result = await _mediator.Send(operation);
+            return result;
         }
 
         /// <summary>
@@ -86,14 +83,10 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="paymentId">The ID of the payment to delete.</param>
         /// <returns>No content if successful, or not found if the payment doesn't exist.</returns>
         [HttpDelete("{paymentId}")]
-        public async Task<IActionResult> DeletePayment(int paymentId)
+        public async Task<ApiResponse> DeletePayment(int paymentId)
         {
-            var result = await _paymentService.DeletePaymentAsync(paymentId);
-            if (result)
-            {
-                return NoContent();
-            }
-
-            return NotFound();
+            var operation = new DeletePaymentCommand(paymentId);
+            var result = await _mediator.Send(operation);
+            return result;
         }
     }
