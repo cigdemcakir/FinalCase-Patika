@@ -1,4 +1,5 @@
 using ExpensePaymentSystem.Base.Enums;
+using ExpensePaymentSystem.Data.Entity;
 
 namespace ExpensePaymentSystem.Schema;
 
@@ -23,4 +24,5 @@ public class ExpenseResponse
     public string Category { get; set; }
     public ExpenseStatus Status { get; set; }
     public string? RejectionReason { get; set; }
+    public Report Report { get; set; }
 }

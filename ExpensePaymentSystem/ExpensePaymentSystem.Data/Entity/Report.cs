@@ -33,8 +33,7 @@ public class ReportConfiguration : IEntityTypeConfiguration<Report>
         // Establishes a relationship to the Expense entity (if exists)
         builder.HasOne(r => r.User)
             .WithMany(u => u.Reports)
-            .HasForeignKey(r => r.UserId)
-            .OnDelete(DeleteBehavior.NoAction);
+            .HasForeignKey(r => r.UserId);
 
 
         // Expenses ile ilişki - Bir rapor birden fazla harcamayı içerebilir

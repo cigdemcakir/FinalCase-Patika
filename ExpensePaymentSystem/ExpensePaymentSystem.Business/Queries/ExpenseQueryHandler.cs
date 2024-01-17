@@ -28,9 +28,6 @@ public class ExpenseQueryHandler:
         CancellationToken cancellationToken)
     {
         var list = await dbContext.Set<Expense>()
-            .Include(x => x.Category)
-            .Include(x => x.Payment)
-            .Include(x => x.User)
             .ToListAsync(cancellationToken);
         
         var mappedList = mapper.Map<List<Expense>, List<ExpenseResponse>>(list);
@@ -41,7 +38,6 @@ public class ExpenseQueryHandler:
         CancellationToken cancellationToken)
     {
         var entity =  await dbContext.Set<Expense>()
-            .Include(x => x.Category)
             .Include(x => x.Payment)
             .Include(x => x.User)
             .FirstOrDefaultAsync(x => x.ExpenseId == request.Id, cancellationToken);
@@ -61,7 +57,6 @@ public class ExpenseQueryHandler:
         var predicate = PredicateBuilder.New<Expense>(true);
         
         var list =  await dbContext.Set<Expense>()
-            .Include(x => x.Category)
             .Include(x => x.Payment)
             .Include(x => x.User)
             .Where(predicate).ToListAsync(cancellationToken);

@@ -23,7 +23,6 @@ public class Expense
     public int? ReportId { get; set; }
     public virtual Report Report { get; set; }
     
-    
 }
 
 public class ExpenseConfiguration : IEntityTypeConfiguration<Expense>
@@ -57,7 +56,8 @@ public class ExpenseConfiguration : IEntityTypeConfiguration<Expense>
 
         builder.HasOne(e => e.Report)
             .WithMany(r => r.Expenses)
-            .HasForeignKey(e => e.ReportId);
+            .HasForeignKey(e => e.ReportId)
+            .IsRequired(false);
     }
 }
 
