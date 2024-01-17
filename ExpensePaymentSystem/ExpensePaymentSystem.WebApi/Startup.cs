@@ -1,12 +1,15 @@
 using System.Reflection;
 using System.Text;
 using AutoMapper;
+using ExpensePaymentSystem.Base.Token;
 using ExpensePaymentSystem.Business.Cqrs;
 using ExpensePaymentSystem.Business.Interfaces;
 using ExpensePaymentSystem.Business.Mapper;
 using ExpensePaymentSystem.Business.Services;
+using ExpensePaymentSystem.Business.Validators;
 using ExpensePaymentSystem.Data.DbContext;
 using ExpensePaymentSystem.WebApi.Middlewares;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -43,10 +46,10 @@ public class Startup
         services.AddSingleton(mapperConfig.CreateMapper());
 
 
-        // services.AddControllers().AddFluentValidation(x =>
-        // {
-        //     x.RegisterValidatorsFromAssemblyContaining<CreateCustomerValidator>();
-        // });
+        services.AddControllers().AddFluentValidation(x =>
+        {
+            x.RegisterValidatorsFromAssemblyContaining<ExpenseValidator>();
+        });
         
         services.AddControllers();
 
@@ -79,10 +82,10 @@ public class Startup
         });
         
 
-        // JwtConfig jwtConfig = Configuration.GetSection("JwtConfig").Get<JwtConfig>();
-        // services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
+        JwtConfig jwtConfig = Configuration.GetSection("JwtConfig").Get<JwtConfig>();
+        services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
         
-        /*services.AddAuthentication(x =>
+        services.AddAuthentication(x =>
         {
             x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -101,16 +104,10 @@ public class Startup
                 ValidateLifetime = true,
                 ClockSkew = TimeSpan.FromMinutes(2)
             };
-        });*/
+        });
         
-        //services.AddScoped<IUserService, UserService>();
-        // services.AddScoped<IPaymentService, PaymentService>();
-        // services.AddScoped<IExpenseService, ExpenseService>();
-        // services.AddScoped<IExpenseCategoryService, ExpenseCategoryService>();
-        // services.AddScoped<IAuthorizationService, AuthorizationService>();
-        // services.AddScoped<IAuditLogService, AuditLogService>();
-        // services.AddScoped<IReportService, ReportService>();
-        // services.AddScoped<INotificationService, NotificationService>();
+        services.AddScoped<IAuthorizationService, AuthorizationService>();
+        services.AddScoped<INotificationService, NotificationService>();
     }
     
     public void Configure(IApplicationBuilder app,IWebHostEnvironment env)

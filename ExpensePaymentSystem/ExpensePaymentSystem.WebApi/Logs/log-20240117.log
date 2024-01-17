@@ -848,3 +848,4 @@ System.Text.Json.JsonException: A possible object cycle was detected. This can e
 2024-01-17 08:41:53.989 [INF] App server is starting.
 2024-01-17 08:41:59.405 [WRN] Failed to determine the https port for redirect.
 2024-01-17 08:42:00.741 [WRN] The 'bool' property 'IsActive' on entity type 'User' is configured with a database-generated default. This default will always be used for inserts when the property has the value 'false', since this is the CLR default for the 'bool' type. Consider using the nullable 'bool?' type instead, so that the default will only be used for inserts when the property value is 'null'.
+2024-01-17 09:02:41.642 [INF] App server is starting.
