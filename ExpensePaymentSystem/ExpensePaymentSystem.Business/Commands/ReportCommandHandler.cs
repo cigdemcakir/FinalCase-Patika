@@ -68,13 +68,14 @@ public class ReportCommandHandler:
     {
         var fromdb = await dbContext.Set<Report>().Where(x => x.ReportId == request.Id)
             .FirstOrDefaultAsync(cancellationToken);
+        
         if (fromdb == null)
         {
             return new ApiResponse("Record not found");
         }
         
-        // fromdb. = request.Model.FirstName;
-        // fromdb.LastName = request.Model.LastName;
+        fromdb.StartDate= request.Model.StartDate;
+        fromdb.EndDate = request.Model.EndDate;
         
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
@@ -90,6 +91,8 @@ public class ReportCommandHandler:
             return new ApiResponse("Record not found");
         }
         
+        dbContext.Reports.Remove(fromdb);
+
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
     }

@@ -29,6 +29,13 @@ public class ExpenseCommandHandler :
 
     public async Task<ApiResponse<ExpenseResponse>> Handle(CreateExpenseCommand request, CancellationToken cancellationToken)
     {
+        var entity = mapper.Map<ExpenseRequest, Expense>(request.Model);
+        await dbContext.AddAsync(entity, cancellationToken);
+        await dbContext.SaveChangesAsync(cancellationToken);
+
+        var mapped = mapper.Map<Expense, ExpenseResponse>(entity);
+        return new ApiResponse<ExpenseResponse>(mapped);
+        /*
         var checkIdentity = await dbContext.Set<Expense>().Where(x => x.ExpenseId == request.Model.UserId)
             .FirstOrDefaultAsync(cancellationToken);
         if (checkIdentity != null)
@@ -37,32 +44,11 @@ public class ExpenseCommandHandler :
         }
         
         var entity = mapper.Map<ExpenseRequest, Expense>(request.Model);
-        // entity.ExpenseNumber = new Random().Next(1000000, 9999999);
-        //
-        // if (entity.Accounts.Any())
-        // {
-        //     entity.Accounts.ForEach(x =>
-        //     {
-        //         x.AccountNumber = new Random().Next(10000000, 99999999);
-        //     });
-        // }
-        //
         var entityResult = await dbContext.AddAsync(entity, cancellationToken);
         await dbContext.SaveChangesAsync(cancellationToken);
 
-
-        // if (entity.Contacts.Any())
-        // {
-        //     var email = entity.Contacts.FirstOrDefault(x => x.IsDefault && x.ContactType == "Email");
-        //     if (email != null)
-        //     {
-        //         BackgroundJob.Schedule(() => notificationService.SendEmail("Welcome " + entity.FirstName ,email.Information,"Welcome on board!"), TimeSpan.FromSeconds(50));
-        //     }
-        // }
-      
-
         var mapped = mapper.Map<Expense, ExpenseResponse>(entityResult.Entity);
-        return new ApiResponse<ExpenseResponse>(mapped);
+        return new ApiResponse<ExpenseResponse>(mapped);*/
     }
 
     public async Task<ApiResponse> Handle(UpdateExpenseCommand request, CancellationToken cancellationToken)
@@ -73,9 +59,11 @@ public class ExpenseCommandHandler :
         {
             return new ApiResponse("Record not found");
         }
-        
-        // fromdb.FirstName = request.Model.FirstName;
-        // fromdb.LastName = request.Model.LastName;
+
+        fromdb.Category = request.Model.Category;
+        fromdb.Status = request.Model.Status;
+        fromdb.Date = request.Model.Date;
+        fromdb.Amount = request.Model.Amount;
         
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
@@ -91,6 +79,7 @@ public class ExpenseCommandHandler :
             return new ApiResponse("Record not found");
         }
         
+        dbContext.Expenses.Remove(fromdb);
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
     }
