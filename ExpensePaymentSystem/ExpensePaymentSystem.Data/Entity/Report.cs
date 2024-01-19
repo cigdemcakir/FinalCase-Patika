@@ -12,6 +12,7 @@ public class Report
     public int UserId { get; set; }     // ID of the user who performed the action
     public DateTime StartDate { get; set; } // Start date of the report period
     public DateTime EndDate { get; set; } // End date of the report period
+    public decimal TotalAmount { get; set; } // Total cost of the report period
     
     // Navigation property for the User (if you have a User entity in your system)
     public virtual User User { get; set; }
@@ -25,6 +26,8 @@ public class ReportConfiguration : IEntityTypeConfiguration<Report>
     {
         builder.Property(r => r.StartDate).IsRequired();
         builder.Property(r => r.EndDate).IsRequired();
+        builder.Property(r => r.TotalAmount).IsRequired()
+            .HasColumnType("decimal(18, 2)");
 
         // Primary key definition
         builder.HasKey(al => al.ReportId);

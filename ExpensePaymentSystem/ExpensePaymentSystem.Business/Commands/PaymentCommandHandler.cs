@@ -11,10 +11,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExpensePaymentSystem.Business.Commands;
 
-public class PaymentCommandHandler:
+public class PaymentCommandHandler/*:
     IRequestHandler<CreatePaymentCommand, ApiResponse<PaymentResponse>>,
     IRequestHandler<UpdatePaymentCommand,ApiResponse>,
-    IRequestHandler<DeletePaymentCommand,ApiResponse>
+    IRequestHandler<DeletePaymentCommand,ApiResponse>*/
 
 {
     private readonly ExpensePaymentSystemDbContext dbContext;
@@ -25,7 +25,7 @@ public class PaymentCommandHandler:
         this.dbContext = dbContext;
         this.mapper = mapper;
     }
-
+/*
     public async Task<ApiResponse<PaymentResponse>> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
     {
 
@@ -68,5 +68,5 @@ public class PaymentCommandHandler:
         dbContext.Payments.Remove(fromdb);
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
-    }
+    } */
 }

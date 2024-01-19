@@ -12,10 +12,10 @@ using Microsoft.EntityFrameworkCore;
 namespace ExpensePaymentSystem.Business.Commands;
 
 
-public class ExpenseCommandHandler :
-    IRequestHandler<CreateExpenseCommand, ApiResponse<ExpenseResponse>>,
-    IRequestHandler<UpdateExpenseCommand,ApiResponse>,
-    IRequestHandler<DeleteExpenseCommand,ApiResponse>
+public class ExpenseCommandHandler 
+    //IRequestHandler<CreateExpenseCommand, ApiResponse<ExpenseResponse>>,
+    //IRequestHandler<UpdateExpenseCommand,ApiResponse>,
+    //IRequestHandler<DeleteExpenseCommand,ApiResponse>
 
 {
     private readonly ExpensePaymentSystemDbContext dbContext;
@@ -27,7 +27,7 @@ public class ExpenseCommandHandler :
         this.mapper = mapper;
     }
 
-    public async Task<ApiResponse<ExpenseResponse>> Handle(CreateExpenseCommand request, CancellationToken cancellationToken)
+    /*public async Task<ApiResponse<ExpenseResponse>> Handle(CreateExpenseCommand request, CancellationToken cancellationToken)
     {
         var entity = mapper.Map<ExpenseRequest, Expense>(request.Model);
         await dbContext.AddAsync(entity, cancellationToken);
@@ -35,6 +35,7 @@ public class ExpenseCommandHandler :
 
         var mapped = mapper.Map<Expense, ExpenseResponse>(entity);
         return new ApiResponse<ExpenseResponse>(mapped);
+     
         /*
         var checkIdentity = await dbContext.Set<Expense>().Where(x => x.ExpenseId == request.Model.UserId)
             .FirstOrDefaultAsync(cancellationToken);
@@ -48,10 +49,10 @@ public class ExpenseCommandHandler :
         await dbContext.SaveChangesAsync(cancellationToken);
 
         var mapped = mapper.Map<Expense, ExpenseResponse>(entityResult.Entity);
-        return new ApiResponse<ExpenseResponse>(mapped);*/
-    }
+        return new ApiResponse<ExpenseResponse>(mapped);#1#
+    }*/
 
-    public async Task<ApiResponse> Handle(UpdateExpenseCommand request, CancellationToken cancellationToken)
+    /*public async Task<ApiResponse> Handle(UpdateExpenseCommand request, CancellationToken cancellationToken)
     {
         var fromdb = await dbContext.Set<Expense>().Where(x => x.ExpenseId == request.Id)
             .FirstOrDefaultAsync(cancellationToken);
@@ -61,7 +62,6 @@ public class ExpenseCommandHandler :
         }
 
         fromdb.Category = request.Model.Category;
-        fromdb.Status = request.Model.Status;
         fromdb.Date = request.Model.Date;
         fromdb.Amount = request.Model.Amount;
         
@@ -82,5 +82,5 @@ public class ExpenseCommandHandler :
         dbContext.Expenses.Remove(fromdb);
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
-    }
+    }*/
 }

@@ -15,8 +15,8 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace ExpensePaymentSystem.Business.Commands;
 
-public class TokenCommandHandler :
-    IRequestHandler<CreateTokenCommand, ApiResponse<TokenResponse>>
+public class TokenCommandHandler /*:
+    IRequestHandler<CreateTokenCommand, ApiResponse<TokenResponse>>*/
 {
     private readonly ExpensePaymentSystemDbContext dbContext;
     private readonly JwtConfig jwtConfig;
@@ -26,7 +26,7 @@ public class TokenCommandHandler :
         this.dbContext = dbContext;
         this.jwtConfig = jwtConfig.CurrentValue;
     }
-    
+    /*
     public async Task<ApiResponse<TokenResponse>> Handle(CreateTokenCommand request, CancellationToken cancellationToken)
     {
         var user = await dbContext.Set<User>().Where(x => x.UserName == request.Model.UserName)
@@ -92,5 +92,5 @@ public class TokenCommandHandler :
         };
 
         return claims;
-    }
+    } */
 }

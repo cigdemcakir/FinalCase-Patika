@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExpensePaymentSystem.Business.Commands;
 
-public class UserCommandHandler :
+public class UserCommandHandler /*:
     IRequestHandler<CreateUserCommand, ApiResponse<UserResponse>>,
     IRequestHandler<UpdateUserCommand,ApiResponse>,
-    IRequestHandler<DeleteUserCommand,ApiResponse>
+    IRequestHandler<DeleteUserCommand,ApiResponse>*/
 
 {
     private readonly ExpensePaymentSystemDbContext dbContext;
@@ -24,6 +24,7 @@ public class UserCommandHandler :
         this.mapper = mapper;
     }
 
+    /*
     public async Task<ApiResponse<UserResponse>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
         var checkIdentity = await dbContext.Set<User>().Where(x => x.UserName == request.Model.UserName)
@@ -73,5 +74,5 @@ public class UserCommandHandler :
         fromdb.IsActive = false;
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
-    }
+    }*/
 }

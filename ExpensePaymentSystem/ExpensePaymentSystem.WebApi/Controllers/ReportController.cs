@@ -1,5 +1,11 @@
 using ExpensePaymentSystem.Base.Response;
+using ExpensePaymentSystem.Business.Commands.ReportCommands.CreateCommand;
+using ExpensePaymentSystem.Business.Commands.ReportCommands.DeleteReport;
+using ExpensePaymentSystem.Business.Commands.ReportCommands.UpdateReport;
 using ExpensePaymentSystem.Business.Cqrs;
+using ExpensePaymentSystem.Business.Queries.ReportQueries.GetAllReports;
+using ExpensePaymentSystem.Business.Queries.ReportQueries.GetReportById;
+using ExpensePaymentSystem.Business.Queries.ReportQueries.GetReportsByParameter;
 using ExpensePaymentSystem.Schema;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -22,7 +28,7 @@ public class ReportController : ControllerBase
     //[Authorize(Roles = "admin")]
     public async Task<ApiResponse<List<ReportResponse>>> Get()
     {
-        var operation = new GetAllReportQuery();
+        var operation = new GetAllReportsQuery();
         var result = await _mediator.Send(operation);
         return result;
     }
@@ -39,11 +45,11 @@ public class ReportController : ControllerBase
     [HttpGet("ByParameters")]
     //[Authorize(Roles = "admin")]
     public async Task<ApiResponse<List<ReportResponse>>> GetByParameter(
-        [FromQuery] string? FirstName,
-        [FromQuery] string? LastName,
+        [FromQuery] DateTime? startDate,
+        [FromQuery] DateTime? endDate,
         [FromQuery] string? IdentityNumber)
     {
-        var operation = new GetReportByParameterQuery(FirstName, LastName, IdentityNumber);
+        var operation = new GetReportsByParameterQuery(startDate, endDate);
         var result = await _mediator.Send(operation);
         return result;
     }
@@ -59,7 +65,7 @@ public class ReportController : ControllerBase
 
     [HttpPut("{id}")]
     //[Authorize(Roles = "admin")]
-    public async Task<ApiResponse> Put(int id, [FromBody] ReportRequest Report)
+    public async Task<ApiResponse<ReportResponse>> Put(int id, [FromBody] ReportRequest Report)
     {
         var operation = new UpdateReportCommand(id, Report);
         var result = await _mediator.Send(operation);

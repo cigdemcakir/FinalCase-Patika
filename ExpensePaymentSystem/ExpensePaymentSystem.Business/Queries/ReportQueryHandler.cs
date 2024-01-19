@@ -10,10 +10,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExpensePaymentSystem.Business.Queries;
 
-public class ReportQueryHandler:
+public class ReportQueryHandler/*:
     IRequestHandler<GetAllReportQuery, ApiResponse<List<ReportResponse>>>,
     IRequestHandler<GetReportByIdQuery, ApiResponse<ReportResponse>>,
-    IRequestHandler<GetReportByParameterQuery, ApiResponse<List<ReportResponse>>>
+    IRequestHandler<GetReportByParameterQuery, ApiResponse<List<ReportResponse>>>*/
 {
     private readonly ExpensePaymentSystemDbContext dbContext;
     private readonly IMapper mapper;
@@ -23,7 +23,7 @@ public class ReportQueryHandler:
         this.dbContext = dbContext;
         this.mapper = mapper;
     }
-
+/*
     public async Task<ApiResponse<List<ReportResponse>>> Handle(GetAllReportQuery request,
         CancellationToken cancellationToken)
     {
@@ -65,5 +65,5 @@ public class ReportQueryHandler:
         
         var mappedList = mapper.Map<List<Report>, List<ReportResponse>>(list);
         return new ApiResponse<List<ReportResponse>>(mappedList);
-    }
+    }*/
 }

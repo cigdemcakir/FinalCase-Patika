@@ -1,6 +1,12 @@
 using ExpensePaymentSystem.Base.Response;
+using ExpensePaymentSystem.Business.Commands.UserCommands.CreateUser;
+using ExpensePaymentSystem.Business.Commands.UserCommands.DeleteUser;
+using ExpensePaymentSystem.Business.Commands.UserCommands.UpdateUser;
 using ExpensePaymentSystem.Business.Cqrs;
 using ExpensePaymentSystem.Business.Interfaces;
+using ExpensePaymentSystem.Business.Queries.UserQueries.GetAllUsers;
+using ExpensePaymentSystem.Business.Queries.UserQueries.GetUserById;
+using ExpensePaymentSystem.Business.Queries.UserQueries.GetUsersByParameter;
 using ExpensePaymentSystem.Data.Entity;
 using ExpensePaymentSystem.Schema;
 using MediatR;
@@ -33,7 +39,7 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         [HttpGet]
         public async Task<ApiResponse<List<UserResponse>>> GetUsers()
         {
-            var operation = new GetAllUserQuery();
+            var operation = new GetAllUsersQuery();
             var result = await _mediator.Send(operation);
             return result;
         }
@@ -50,6 +56,16 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
             var result = await _mediator.Send(operation);
             return result;
         }
+        
+        [HttpGet("parameter")]
+        public async Task<ApiResponse<List<UserResponse>>> GetByParameter([FromQuery] string? userName, [FromQuery] string? firstName,  [FromQuery] string? lastName)
+        {
+            var query = new GetUsersByParameterQuery(userName, firstName, lastName);
+            var result = await _mediator.Send(query);
+
+            return result;
+        }
+
 
         /// <summary>
         /// Create a new user.
@@ -71,7 +87,7 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="user">The updated user object.</param>
         /// <returns>The updated user object.</returns>
         [HttpPut("{userId}")]
-        public async Task<ApiResponse> UpdateUser(int userId, [FromBody] UserRequest User)
+        public async Task<ApiResponse<UserResponse>> UpdateUser(int userId, [FromBody] UserRequest User)
         {
             var operation = new UpdateUserCommand(userId ,User);
             var result = await _mediator.Send(operation);

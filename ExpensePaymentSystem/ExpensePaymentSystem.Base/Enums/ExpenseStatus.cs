@@ -2,7 +2,7 @@ namespace ExpensePaymentSystem.Base.Enums;
 
 public enum ExpenseStatus
 {
-    Submitted,
+    Pending,
     Approved,
     Rejected
 }

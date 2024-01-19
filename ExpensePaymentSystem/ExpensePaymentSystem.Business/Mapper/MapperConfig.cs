@@ -1,4 +1,5 @@
 using AutoMapper;
+using ExpensePaymentSystem.Base.Enums;
 using ExpensePaymentSystem.Data.Entity;
 using ExpensePaymentSystem.Schema;
 
@@ -8,7 +9,9 @@ public class MapperConfig : Profile
 {
     public MapperConfig()
     {
-        CreateMap<ExpenseRequest, Expense>();
+        CreateMap<ExpenseRequest, Expense>()
+            .ForMember(dest => dest.Status, opt => opt.MapFrom(src => ExpenseStatus.Pending));
+
         CreateMap<Expense, ExpenseResponse>();
         
         CreateMap<PaymentRequest, Payment>();

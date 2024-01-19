@@ -1,6 +1,12 @@
+using ExpensePaymentSystem.Base.Enums;
 using ExpensePaymentSystem.Base.Response;
+using ExpensePaymentSystem.Business.Commands.PaymentCommands.CreatePayment;
+using ExpensePaymentSystem.Business.Commands.PaymentCommands.DeletePayment;
+using ExpensePaymentSystem.Business.Commands.PaymentCommands.UpdatePayment;
 using ExpensePaymentSystem.Business.Cqrs;
 using ExpensePaymentSystem.Business.Interfaces;
+using ExpensePaymentSystem.Business.Queries.PaymentQueries.GetAllPayments;
+using ExpensePaymentSystem.Business.Queries.PaymentQueries.GetPaymentsByParameter;
 using ExpensePaymentSystem.Data.Entity;
 using ExpensePaymentSystem.Schema;
 using MediatR;
@@ -33,8 +39,18 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         [HttpGet]
         public async Task<ApiResponse<List<PaymentResponse>>> Get()
         {
-            var operation = new GetAllPaymentQuery();
+            var operation = new GetAllPaymentsQuery();
             var result = await _mediator.Send(operation);
+            return result;
+        }
+        
+           
+        [HttpGet("parameter")]
+        public async Task<ApiResponse<List<PaymentResponse>>> GetByParameter([FromQuery] decimal? amount, [FromQuery] DateTime? paymentDate,  [FromQuery] string? paymentMethod)
+        {
+            var query = new GetPaymentsByParameterQuery(amount, paymentDate, paymentMethod);
+            var result = await _mediator.Send(query);
+
             return result;
         }
 
@@ -70,7 +86,7 @@ namespace ExpensePaymentSystem.WebApi.Controllers;
         /// <param name="payment">The updated payment object.</param>
         /// <returns>The updated payment object.</returns>
         [HttpPut("{paymentId}")]
-        public async Task<ApiResponse> UpdatePayment(int paymentId, [FromBody] PaymentRequest Contact)
+        public async Task<ApiResponse<PaymentResponse>> UpdatePayment(int paymentId, [FromBody] PaymentRequest Contact)
         {
             var operation = new UpdatePaymentCommand(paymentId, Contact);
             var result = await _mediator.Send(operation);

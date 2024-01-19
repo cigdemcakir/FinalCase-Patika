@@ -10,10 +10,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExpensePaymentSystem.Business.Queries;
 
-public class UserQueryHandler :
+public class UserQueryHandler /*:
     IRequestHandler<GetAllUserQuery, ApiResponse<List<UserResponse>>>,
     IRequestHandler<GetUserByIdQuery, ApiResponse<UserResponse>>,
-    IRequestHandler<GetUserByParameterQuery, ApiResponse<List<UserResponse>>>
+    IRequestHandler<GetUserByParameterQuery, ApiResponse<List<UserResponse>>>*/
 {
     private readonly ExpensePaymentSystemDbContext dbContext;
     private readonly IMapper mapper;
@@ -23,7 +23,7 @@ public class UserQueryHandler :
         this.dbContext = dbContext;
         this.mapper = mapper;
     }
-
+/*
     public async Task<ApiResponse<List<UserResponse>>> Handle(GetAllUserQuery request,
         CancellationToken cancellationToken)
     {
@@ -66,5 +66,5 @@ public class UserQueryHandler :
         
         var mappedList = mapper.Map<List<User>, List<UserResponse>>(list);
         return new ApiResponse<List<UserResponse>>(mappedList);
-    }
+    }*/
 }

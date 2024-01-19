@@ -4,4 +4,4 @@ using MediatR;
 
 namespace ExpensePaymentSystem.Business.Cqrs;
 
-public record CreateTokenCommand(TokenRequest Model) : IRequest<ApiResponse<TokenResponse>>;
+//public record CreateTokenCommand(TokenRequest Model) : IRequest<ApiResponse<TokenResponse>>;

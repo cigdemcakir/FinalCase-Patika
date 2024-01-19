@@ -11,10 +11,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExpensePaymentSystem.Business.Commands;
 
-public class ReportCommandHandler: 
+public class ReportCommandHandler/*: 
     IRequestHandler<CreateReportCommand, ApiResponse<ReportResponse>>,
     IRequestHandler<UpdateReportCommand,ApiResponse>,
-    IRequestHandler<DeleteReportCommand,ApiResponse>
+    IRequestHandler<DeleteReportCommand,ApiResponse>*/
 
 {
     private readonly ExpensePaymentSystemDbContext dbContext;
@@ -25,7 +25,7 @@ public class ReportCommandHandler:
         this.dbContext = dbContext;
         this.mapper = mapper;
     }
-
+/*
     public async Task<ApiResponse<ReportResponse>> Handle(CreateReportCommand request, CancellationToken cancellationToken)
     {
         var checkIdentity = await dbContext.Set<Report>().Where(x => x.ReportId == request.Model.UserId)
@@ -95,5 +95,5 @@ public class ReportCommandHandler:
 
         await dbContext.SaveChangesAsync(cancellationToken);
         return new ApiResponse();
-    }
+    }*/
 }

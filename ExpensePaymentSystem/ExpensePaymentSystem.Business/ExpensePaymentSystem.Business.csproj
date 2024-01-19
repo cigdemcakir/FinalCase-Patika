@@ -24,4 +24,9 @@
       <ProjectReference Include="..\ExpensePaymentSystem.Schema\ExpensePaymentSystem.Schema.csproj" />
     </ItemGroup>
 
+    
+    <ItemGroup>
+      <Folder Include="Queries\ExpenseQueries\" />
+    </ItemGroup>
+
 </Project>
