@@ -25,12 +25,12 @@ public class DeleteExpenseCommandHandler : IRequestHandler<DeleteExpenseCommand,
             .FirstOrDefaultAsync(cancellationToken);
         
         if (fromdb == null)
-        {
             return new ApiResponse("Record not found");
-        }
 
         _dbContext.Expenses.Remove(fromdb);
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
+        
         return new ApiResponse();
     }
 }

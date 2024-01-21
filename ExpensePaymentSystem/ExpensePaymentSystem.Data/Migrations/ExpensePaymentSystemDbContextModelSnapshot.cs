@@ -88,10 +88,8 @@ namespace ExpensePaymentSystem.Data.Migrations
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("PaymentMethod")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("PaymentMethod")
+                        .HasColumnType("int");
 
                     b.HasKey("PaymentId");
 
@@ -115,7 +113,13 @@ namespace ExpensePaymentSystem.Data.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserId")
+                    b.Property<decimal>("TotalExpense")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<decimal>("TotalPayment")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("ReportId");
@@ -221,9 +225,7 @@ namespace ExpensePaymentSystem.Data.Migrations
                 {
                     b.HasOne("ExpensePaymentSystem.Data.Entity.User", "User")
                         .WithMany("Reports")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });

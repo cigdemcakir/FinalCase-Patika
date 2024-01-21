@@ -25,19 +25,22 @@ public class GetUsersByParameterQueryHandler : IRequestHandler<GetUsersByParamet
     {
         var predicate = PredicateBuilder.New<User>(true);
         
-        if (string.IsNullOrEmpty(request.UserName))
+        if (!string.IsNullOrEmpty(request.UserName))
             predicate = predicate.And(x => x.UserName.ToUpper().Contains(request.UserName.ToUpper()));
 
-        if (string.IsNullOrEmpty(request.FirstName))
+        if (!string.IsNullOrEmpty(request.FirstName))
             predicate = predicate.And(x => x.FirstName.ToUpper().Contains(request.FirstName.ToUpper()));
         
-        if (string.IsNullOrEmpty(request.LastName))
+        if (!string.IsNullOrEmpty(request.LastName))
             predicate.And(x => x.LastName.ToUpper().Contains(request.LastName.ToUpper()));
         
         var list =  await _dbContext.Set<User>()
+            .Include(x=>x.Expenses)
+            .Include(x=>x.Reports)
             .Where(predicate).ToListAsync(cancellationToken);
         
         var mappedList = _mapper.Map<List<User>, List<UserResponse>>(list);
+       
         return new ApiResponse<List<UserResponse>>(mappedList);
     }
 }

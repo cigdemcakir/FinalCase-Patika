@@ -26,9 +26,7 @@ public class UpdateExpenseCommandHandler : IRequestHandler<UpdateExpenseCommand,
             .FirstOrDefaultAsync(cancellationToken);
         
         if (fromdb == null)
-        {
             return new ApiResponse<ExpenseResponse>("Record not found");
-        }
 
         fromdb.Status = request.Model.Status;
         fromdb.Category = request.Model.Category;
@@ -36,7 +34,9 @@ public class UpdateExpenseCommandHandler : IRequestHandler<UpdateExpenseCommand,
         fromdb.Amount = request.Model.Amount;
 
         var response = _mapper.Map<ExpenseResponse>(fromdb);
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
+        
         return new ApiResponse<ExpenseResponse>(response);
     }
 }

@@ -1,6 +1,5 @@
 using ExpensePaymentSystem.Base.Response;
 using ExpensePaymentSystem.Business.Commands.TokenCommands.CreateToken;
-using ExpensePaymentSystem.Business.Cqrs;
 using ExpensePaymentSystem.Schema;
 using ExpensePaymentSystem.WebApi.Filter;
 using MediatR;

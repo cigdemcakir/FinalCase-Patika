@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensePaymentSystem.Busine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensePaymentSystem.Schema", "ExpensePaymentSystem.Schema\ExpensePaymentSystem.Schema.csproj", "{337CEE6E-6298-4A75-9650-B11AAEB81237}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AEB41ED7-2FFC-4B7E-9064-E2C3C46655C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensePaymentSystem.UnitTests", "ExpensePaymentSystem.UnitTests\ExpensePaymentSystem.UnitTests.csproj", "{42C38151-AEFD-4809-AE30-699B68CD3B48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,12 @@ Global
 		{337CEE6E-6298-4A75-9650-B11AAEB81237}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{337CEE6E-6298-4A75-9650-B11AAEB81237}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{337CEE6E-6298-4A75-9650-B11AAEB81237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C38151-AEFD-4809-AE30-699B68CD3B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C38151-AEFD-4809-AE30-699B68CD3B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C38151-AEFD-4809-AE30-699B68CD3B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C38151-AEFD-4809-AE30-699B68CD3B48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42C38151-AEFD-4809-AE30-699B68CD3B48} = {AEB41ED7-2FFC-4B7E-9064-E2C3C46655C7}
 	EndGlobalSection
 EndGlobal

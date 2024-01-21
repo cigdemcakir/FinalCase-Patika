@@ -1,4 +1,5 @@
 using AutoMapper;
+using ExpensePaymentSystem.Base.Encryption;
 using ExpensePaymentSystem.Base.Response;
 using ExpensePaymentSystem.Business.Commands.ExpenseCommands.CreateExpense;
 using ExpensePaymentSystem.Data.DbContext;
@@ -23,7 +24,10 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, ApiRe
     {
         var user = _mapper.Map<User>(request.Model);
 
+        user.Password = Md5Extension.GetHash(request.Model.Password);
+        
         await _dbContext.Users.AddAsync(user, cancellationToken);
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         var response = _mapper.Map<UserResponse>(user);

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using ExpensePaymentSystem.Base.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -7,11 +8,12 @@ namespace ExpensePaymentSystem.Data.Entity;
 [Table("Payment", Schema = "dbo")]
 public class Payment
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int PaymentId { get; set; }
     public int ExpenseId { get; set; }
     public decimal Amount { get; set; }
     public DateTime PaymentDate { get; set; }
-    public string PaymentMethod { get; set; }
+    public PaymentMethod PaymentMethod { get; set; }
     public virtual Expense Expense { get; set; }
 }
 
@@ -31,7 +33,7 @@ public class PaymentConfiguration : IEntityTypeConfiguration<Payment>
         
         builder.Property(p => p.PaymentMethod)
             .IsRequired()
-            .HasMaxLength(50);
+            .HasConversion<int>();
 
         builder.HasOne(p => p.Expense)
             .WithOne(e => e.Payment)

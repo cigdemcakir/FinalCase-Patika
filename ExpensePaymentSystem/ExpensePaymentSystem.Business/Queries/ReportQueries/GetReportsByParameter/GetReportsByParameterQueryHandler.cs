@@ -26,15 +26,17 @@ public class GetReportsByParameterQueryHandler : IRequestHandler<GetReportsByPar
         var predicate = PredicateBuilder.New<Report>(true);
 
         if (request.StartDate.HasValue)
-            predicate = predicate.And(x => x.StartDate== request.StartDate.Value.Date);
+            predicate = predicate.And(x => x.StartDate.Date== request.StartDate.Value.Date);
 
         if (request.EndDate.HasValue)
-            predicate = predicate.And(x => x.EndDate== request.EndDate.Value.Date);
+            predicate = predicate.And(x => x.EndDate.Date== request.EndDate.Value.Date);
 
         var list =  await _dbContext.Set<Report>()
+            .Include(x=>x.Expenses)
             .Where(predicate).ToListAsync(cancellationToken);
-        
+
         var mappedList = _mapper.Map<List<Report>, List<ReportResponse>>(list);
+        
         return new ApiResponse<List<ReportResponse>>(mappedList);
     }
 }

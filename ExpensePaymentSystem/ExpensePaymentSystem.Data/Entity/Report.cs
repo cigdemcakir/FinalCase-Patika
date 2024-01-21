@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using ExpensePaymentSystem.Base.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,13 +7,14 @@ namespace ExpensePaymentSystem.Data.Entity;
 [Table("Report", Schema = "dbo")]
 public class Report
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ReportId { get; set; }  
-    public int UserId { get; set; }     // ID of the user who performed the action
+    public int? UserId { get; set; }     // ID of the user who performed the action
     public DateTime StartDate { get; set; } // Start date of the report period
     public DateTime EndDate { get; set; } // End date of the report period
-    public decimal TotalAmount { get; set; } // Total cost of the report period
+    public decimal TotalPayment { get; set; } // Total payment of the report period
+    public decimal TotalExpense { get; set; } // Total expense of the report period
     
-    // Navigation property for the User (if you have a User entity in your system)
     public virtual User User { get; set; }
     public ICollection<Expense> Expenses { get; set; } // Expenses included in the report
 
@@ -24,25 +24,24 @@ public class ReportConfiguration : IEntityTypeConfiguration<Report>
 {
     public void Configure(EntityTypeBuilder<Report> builder)
     {
+        builder.Property(r => r.UserId).IsRequired(false);
         builder.Property(r => r.StartDate).IsRequired();
         builder.Property(r => r.EndDate).IsRequired();
-        builder.Property(r => r.TotalAmount).IsRequired()
+        builder.Property(r => r.TotalPayment).IsRequired()
+            .HasColumnType("decimal(18, 2)");
+        
+        builder.Property(r => r.TotalExpense).IsRequired()
             .HasColumnType("decimal(18, 2)");
 
-        // Primary key definition
+        // Primary key 
         builder.HasKey(al => al.ReportId);
-
-
-        // Establishes a relationship to the Expense entity (if exists)
+        
         builder.HasOne(r => r.User)
             .WithMany(u => u.Reports)
             .HasForeignKey(r => r.UserId);
-
-
-        // Expenses ile ilişki - Bir rapor birden fazla harcamayı içerebilir
+        
         builder.HasMany(r => r.Expenses)
             .WithOne(e => e.Report)
             .HasForeignKey(e => e.ReportId);
-
     }
 }

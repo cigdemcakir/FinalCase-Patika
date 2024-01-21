@@ -25,6 +25,7 @@ public class GetAllExpensesQueryHandler : IRequestHandler<GetAllExpensesQuery, A
             .ToListAsync(cancellationToken);
         
         var mappedList = _mapper.Map<List<Expense>, List<ExpenseResponse>>(list);
+        
         return new ApiResponse<List<ExpenseResponse>>(mappedList);
     }
 }

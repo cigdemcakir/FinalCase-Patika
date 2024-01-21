@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using ExpensePaymentSystem.Base.Entity;
 using ExpensePaymentSystem.Base.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,6 +8,7 @@ namespace ExpensePaymentSystem.Data.Entity;
 [Table("User", Schema = "dbo")]
 public class User 
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int UserId { get; set; }
     public string UserName { get; set; }
     public string Password { get; set; }
@@ -52,7 +52,6 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasMany(u => u.Reports)
             .WithOne(r => r.User)
             .HasForeignKey(r => r.UserId);
-    
     }
 }
 

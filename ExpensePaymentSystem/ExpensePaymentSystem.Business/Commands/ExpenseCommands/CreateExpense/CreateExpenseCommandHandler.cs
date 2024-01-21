@@ -24,6 +24,7 @@ public class CreateExpenseCommandHandler : IRequestHandler<CreateExpenseCommand,
         var expense = _mapper.Map<Expense>(request.Model);
 
         await _dbContext.Expenses.AddAsync(expense, cancellationToken);
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         var response = _mapper.Map<ExpenseResponse>(expense);

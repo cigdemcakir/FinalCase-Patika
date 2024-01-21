@@ -1,11 +1,11 @@
+using ExpensePaymentSystem.Base.Enums;
+
 namespace ExpensePaymentSystem.Schema;
 
 public class PaymentRequest
 {
     public int ExpenseId { get; set; }
-    public decimal Amount { get; set; }
-    public DateTime PaymentDate { get; set; }
-    public string PaymentMethod { get; set; }
+    public PaymentMethod PaymentMethod { get; set; }
 }
 public class PaymentResponse
 {
@@ -13,5 +13,5 @@ public class PaymentResponse
     public int ExpenseId { get; set; }
     public decimal Amount { get; set; }
     public DateTime PaymentDate { get; set; }
-    public string PaymentMethod { get; set; }
+    public PaymentMethod PaymentMethod { get; set; }
 }

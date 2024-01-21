@@ -26,11 +26,9 @@ public class RejectExpenseCommandHandler : IRequestHandler<RejectExpenseCommand,
             .FirstOrDefaultAsync(cancellationToken);
         
         if (fromdb == null)
-        {
             return new ApiResponse("Record not found");
-        }
-        
-        fromdb.Status = ExpenseStatus.Rejected; 
+
+        fromdb.Status = ExpenseStatus.Rejected;
         fromdb.RejectionReason = request.Reason;
 
         await _dbContext.SaveChangesAsync(cancellationToken);

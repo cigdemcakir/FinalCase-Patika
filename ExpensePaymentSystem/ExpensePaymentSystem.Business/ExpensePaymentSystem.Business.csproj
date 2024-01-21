@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="ClosedXML" Version="0.104.0-preview2" />
         <PackageReference Include="Hangfire" Version="1.7.28" />
         <PackageReference Include="Hangfire.PostgreSql" Version="1.9.8" />
         <PackageReference Include="Hangfire.PostgreSql.Npgsql5" Version="1.9.8" />
@@ -22,11 +23,6 @@
       <ProjectReference Include="..\ExpensePaymentSystem.Base\ExpensePaymentSystem.Base.csproj" />
       <ProjectReference Include="..\ExpensePaymentSystem.Data\ExpensePaymentSystem.Data.csproj" />
       <ProjectReference Include="..\ExpensePaymentSystem.Schema\ExpensePaymentSystem.Schema.csproj" />
-    </ItemGroup>
-
-    
-    <ItemGroup>
-      <Folder Include="Queries\ExpenseQueries\" />
     </ItemGroup>
 
 </Project>

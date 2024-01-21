@@ -27,8 +27,8 @@ public class GetExpensesByParameterQueryHandler : IRequestHandler<GetExpensesByP
         if (query.UserId.HasValue)
             predicate = predicate.And(x => x.UserId == query.UserId.Value);
 
-        if (string.IsNullOrEmpty(query.Status.ToString()))
-            predicate.And(x => x.Status.ToString().ToUpper().Contains(query.Status.ToString().ToUpper()));
+        if (query.Status.HasValue)
+            predicate = predicate.And(x => x.Status == query.Status.Value);
         
         if (query.Amount.HasValue)
             predicate = predicate.And(x => x.Amount == query.Amount.Value);
@@ -36,16 +36,14 @@ public class GetExpensesByParameterQueryHandler : IRequestHandler<GetExpensesByP
         if (query.Date.HasValue)
             predicate = predicate.And(x => x.Date.Date == query.Date.Value.Date);
 
-        if (string.IsNullOrEmpty(query.Category))
-            predicate.And(x => x.Category.ToUpper().Contains(query.Category.ToUpper()));
+        if (!string.IsNullOrEmpty(query.Category))
+            predicate= predicate.And(x => x.Category.ToUpper().Contains(query.Category.ToUpper()));
         
         var list =  await _dbContext.Set<Expense>()
-            .Include(x => x.Payment)
-            .Include(x => x.Report)
-            .Include(x => x.User)
             .Where(predicate).ToListAsync(cancellationToken);
         
         var mappedList = _mapper.Map<List<Expense>, List<ExpenseResponse>>(list);
+        
         return new ApiResponse<List<ExpenseResponse>>(mappedList);
     }
 }

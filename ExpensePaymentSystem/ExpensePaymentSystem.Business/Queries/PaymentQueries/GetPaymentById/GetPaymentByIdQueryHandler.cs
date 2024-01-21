@@ -27,11 +27,10 @@ public class GetPaymentByIdQueryHandler : IRequestHandler<GetPaymentByIdQuery, A
             .FirstOrDefaultAsync(x => x.PaymentId == request.Id, cancellationToken);
 
         if (entity == null)
-        {
             return new ApiResponse<PaymentResponse>("Record not found");
-        }
-        
+
         var mapped = _mapper.Map<Payment, PaymentResponse>(entity);
+        
         return new ApiResponse<PaymentResponse>(mapped);
     }
 }

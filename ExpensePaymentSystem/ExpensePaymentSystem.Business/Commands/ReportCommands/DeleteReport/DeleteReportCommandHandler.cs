@@ -26,12 +26,12 @@ public class DeleteReportCommandHandler: IRequestHandler<DeleteReportCommand, Ap
             .FirstOrDefaultAsync(cancellationToken);
         
         if (fromdb == null)
-        {
             return new ApiResponse("Record not found");
-        }
 
         _dbContext.Reports.Remove(fromdb);
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
+        
         return new ApiResponse();
     }
 }

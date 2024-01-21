@@ -29,14 +29,15 @@ public class GetPaymentsByParameterQueryHandler : IRequestHandler<GetPaymentsByP
 
         if (request.PaymentDate.HasValue)
             predicate = predicate.And(x => x.PaymentDate == request.PaymentDate.Value.Date);
-
-        if (string.IsNullOrEmpty(request.PaymentMethod))
-            predicate.And(x => x.PaymentMethod.ToUpper().Contains(request.PaymentMethod.ToUpper()));
+        
+        if (request.PaymentMethod.HasValue)
+            predicate = predicate.And(x => x.PaymentMethod == request.PaymentMethod.Value);
         
         var list =  await _dbContext.Set<Payment>()
             .Where(predicate).ToListAsync(cancellationToken);
         
         var mappedList = _mapper.Map<List<Payment>, List<PaymentResponse>>(list);
+        
         return new ApiResponse<List<PaymentResponse>>(mappedList);
     }
 }

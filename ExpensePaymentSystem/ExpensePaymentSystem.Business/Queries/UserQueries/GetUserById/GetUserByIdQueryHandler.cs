@@ -23,14 +23,15 @@ public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, ApiResp
     public async Task<ApiResponse<UserResponse>> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
     {
         var entity =  await _dbContext.Set<User>()
+            .Include(x=>x.Expenses)
+            .Include(x=>x.Reports)
             .FirstOrDefaultAsync(x => x.UserId == request.Id, cancellationToken);
 
         if (entity == null)
-        {
             return new ApiResponse<UserResponse>("Record not found");
-        }
         
         var mapped = _mapper.Map<User, UserResponse>(entity);
+        
         return new ApiResponse<UserResponse>(mapped);
     }
 }

@@ -27,11 +27,10 @@ public class GetReportByIdQueryHandler : IRequestHandler<GetReportByIdQuery, Api
             .FirstOrDefaultAsync(x => x.ReportId == request.Id, cancellationToken);
 
         if (entity == null)
-        {
             return new ApiResponse<ReportResponse>("Record not found");
-        }
-        
+
         var mapped = _mapper.Map<Report, ReportResponse>(entity);
+        
         return new ApiResponse<ReportResponse>(mapped);
     }
 }

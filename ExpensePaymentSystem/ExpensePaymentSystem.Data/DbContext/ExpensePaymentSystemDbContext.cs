@@ -13,7 +13,6 @@ public class ExpensePaymentSystemDbContext:Microsoft.EntityFrameworkCore.DbConte
     public DbSet<User> Users { get; set; }
     public DbSet<Expense> Expenses { get; set; }
     public DbSet<Payment> Payments { get; set; }
-    
     public DbSet<Report> Reports { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)

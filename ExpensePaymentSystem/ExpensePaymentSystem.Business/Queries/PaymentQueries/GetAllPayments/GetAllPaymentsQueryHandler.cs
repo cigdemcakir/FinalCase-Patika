@@ -26,6 +26,7 @@ public class GetAllPaymentsQueryHandler : IRequestHandler<GetAllPaymentsQuery, A
             .ToListAsync(cancellationToken);
         
         var mappedList = _mapper.Map<List<Payment>, List<PaymentResponse>>(list);
+        
         return new ApiResponse<List<PaymentResponse>>(mappedList);
     }
 }

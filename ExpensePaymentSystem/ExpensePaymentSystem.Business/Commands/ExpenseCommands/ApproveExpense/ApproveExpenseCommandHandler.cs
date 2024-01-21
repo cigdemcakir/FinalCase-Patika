@@ -25,10 +25,8 @@ public class ApproveExpenseCommandHandler : IRequestHandler<ApproveExpenseComman
             .FirstOrDefaultAsync(cancellationToken);
         
         if (fromdb == null)
-        {
             return new ApiResponse("Record not found");
-        }
-        
+
         fromdb.Status = ExpenseStatus.Approved; 
 
         await _dbContext.SaveChangesAsync(cancellationToken);

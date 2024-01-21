@@ -573,3 +573,13 @@
 /Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/ExpensePaymentSystem.Schema.dll
 /Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/ExpensePaymentSystem.Schema.pdb
 /Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/ExpensePaymentSystem.Base.pdb
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/ClosedXML.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/DocumentFormat.OpenXml.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/ExcelNumberFormat.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/SixLabors.Fonts.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/System.IO.Packaging.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/ClosedXML.Parser.dll
+/Users/Levent/Desktop/FinalCase-Patika/ExpensePaymentSystem/ExpensePaymentSystem.WebApi/bin/Debug/net7.0/RBush.dll

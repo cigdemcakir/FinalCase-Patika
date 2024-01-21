@@ -1,24 +1,17 @@
 using ExpensePaymentSystem.Data.Entity;
+using ExpensePaymentSystem.Schema;
 using FluentValidation;
 
 namespace ExpensePaymentSystem.Business.Validators;
 
-public class PaymentValidator : AbstractValidator<Payment>
+public class PaymentRequestValidator : AbstractValidator<PaymentRequest>
 {
-    public PaymentValidator()
+    public PaymentRequestValidator()
     {
-        RuleFor(payment => payment.Amount)
-            .GreaterThan(0).WithMessage("Amount must be greater than zero.");
-
-        RuleFor(payment => payment.PaymentDate)
-            .NotEmpty().WithMessage("Payment date is required.")
-            .LessThanOrEqualTo(DateTime.Now).WithMessage("Payment date cannot be in the future.");
-
-        RuleFor(payment => payment.PaymentMethod)
-            .NotEmpty().WithMessage("Payment method is required.")
-            .MaximumLength(50).WithMessage("Payment method cannot be more than 50 characters.");
-
-        RuleFor(payment => payment.ExpenseId)
+         RuleFor(payment => payment.ExpenseId)
             .GreaterThan(0).WithMessage("Expense ID must be greater than zero.");
+         
+         RuleFor(x => x.PaymentMethod)
+             .IsInEnum().WithMessage("Payment method is not valid.");
     }
 }

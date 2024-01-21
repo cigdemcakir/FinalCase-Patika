@@ -26,15 +26,14 @@ public class UpdatePaymentCommandHandler : IRequestHandler<UpdatePaymentCommand,
             .FirstOrDefaultAsync(cancellationToken);
         
         if (fromdb == null)
-        {
             return new ApiResponse<PaymentResponse>("Record not found");
-        }
 
-        fromdb.Amount = request.Model.Amount;
         fromdb.PaymentMethod = request.Model.PaymentMethod;
 
         var response = _mapper.Map<PaymentResponse>(fromdb);
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
+        
         return new ApiResponse<PaymentResponse>(response);
     }
 }

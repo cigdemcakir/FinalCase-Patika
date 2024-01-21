@@ -23,9 +23,11 @@ public class GetAllReportsQueryHandler : IRequestHandler<GetAllReportsQuery, Api
     public async Task<ApiResponse<List<ReportResponse>>> Handle(GetAllReportsQuery request, CancellationToken cancellationToken)
     {
         var list = await _dbContext.Set<Report>()
+            .Include(x=>x.Expenses)
             .ToListAsync(cancellationToken);
         
         var mappedList = _mapper.Map<List<Report>, List<ReportResponse>>(list);
+        
         return new ApiResponse<List<ReportResponse>>(mappedList);
     }
 }

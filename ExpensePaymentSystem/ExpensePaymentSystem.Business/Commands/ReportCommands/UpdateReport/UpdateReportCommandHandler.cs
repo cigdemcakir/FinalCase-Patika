@@ -26,19 +26,19 @@ public class UpdateReportCommandHandler: IRequestHandler<UpdateReportCommand, Ap
             .FirstOrDefaultAsync(cancellationToken);
         
         if (fromdb == null)
-        {
             return new ApiResponse<ReportResponse>("Record not found");
-        }
 
         fromdb.StartDate = request.Model.StartDate;
         fromdb.EndDate = request.Model.EndDate;
         
-        fromdb.TotalAmount = await _dbContext.Reports
+        fromdb.TotalPayment = await _dbContext.Reports
             .Where(e => e.StartDate >= request.Model.StartDate && e.EndDate <= request.Model.EndDate)
-            .SumAsync(e => e.TotalAmount, cancellationToken);
+            .SumAsync(e => e.TotalPayment, cancellationToken);
 
         var response = _mapper.Map<ReportResponse>(fromdb);
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
+        
         return new ApiResponse<ReportResponse>(response);
        
     }

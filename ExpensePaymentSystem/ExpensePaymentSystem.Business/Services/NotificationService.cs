@@ -1,30 +1,54 @@
+using System.Net;
+using System.Net.Mail;
 using ExpensePaymentSystem.Business.Interfaces;
 using ExpensePaymentSystem.Data.DbContext;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using Serilog;
 
 namespace ExpensePaymentSystem.Business.Services;
-
 public class NotificationService : INotificationService
 {
-    // Dependencies for sending notifications (e.g., email service, SMS service)
     private readonly ExpensePaymentSystemDbContext _context;
+    private readonly IConfiguration _configuration;
+    private readonly SmtpClient _smtpClient;
+    private readonly string _fromAddress; 
 
-    
-    public NotificationService(ExpensePaymentSystemDbContext context/* Dependencies here */)
+    public NotificationService(ExpensePaymentSystemDbContext context, IConfiguration configuration, SmtpClient smtpClient)
     {
         _context = context;
-        // Initialize dependencies
+        _configuration = configuration;
+        _smtpClient = smtpClient;
+        _fromAddress = _configuration["EmailSettings:FromAddress"];
     }
 
-    // Sends a notification to the user about the approval status of their expense.
-    public async Task SendExpenseApprovalNotificationAsync(int userId, bool isApproved)
+    public async Task SendExpensePaymentNotificationAsync(int userId)
     {
-        // Logic to send notification
-        // This is a simplified example, and you should replace it with actual notification sending logic.
         var user = await _context.Users.FindAsync(userId);
         if (user != null)
         {
-            var message = isApproved ? "Your expense has been approved." : "Your expense has been rejected.";
-            // Send the notification (e.g., email, SMS)
+            await SendExpensePaymentEmailAsync(user.Email, "Expense Notification", "Your expense have been paid.");
+        }
+    }
+
+    public async Task SendExpensePaymentEmailAsync(string to, string subject, string body)
+    {
+        try
+        {
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(_fromAddress),
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
+            mailMessage.To.Add(to);
+
+            await _smtpClient.SendMailAsync(mailMessage);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Email could not be sent.");
         }
     }
 }

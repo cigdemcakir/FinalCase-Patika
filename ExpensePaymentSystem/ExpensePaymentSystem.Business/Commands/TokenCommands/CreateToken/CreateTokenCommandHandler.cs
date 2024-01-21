@@ -29,12 +29,13 @@ public class CreateTokenCommandHandler: IRequestHandler<CreateTokenCommand, ApiR
     {
         var user = await dbContext.Set<User>().Where(x => x.UserName == request.Model.UserName)
             .FirstOrDefaultAsync(cancellationToken);
+        
         if (user == null)
-        {
             return new ApiResponse<TokenResponse>("Invalid user information");
-        }
+        
 
         string hash = Md5Extension.GetHash(request.Model.Password.Trim());
+        
         if (hash != user.Password)
         {
             user.LastActivityDate = DateTime.UtcNow;
@@ -44,12 +45,11 @@ public class CreateTokenCommandHandler: IRequestHandler<CreateTokenCommand, ApiR
         }
 
         if (user.PasswordRetryCount > 3)
-        {
             return new ApiResponse<TokenResponse>("Invalid user status");
-        }
-        
+
         user.LastActivityDate = DateTime.UtcNow;
         user.PasswordRetryCount = 0;
+        
         await dbContext.SaveChangesAsync(cancellationToken);
 
         string token = Token(user);

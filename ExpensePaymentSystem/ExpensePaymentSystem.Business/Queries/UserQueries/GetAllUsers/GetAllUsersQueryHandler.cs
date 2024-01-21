@@ -23,9 +23,12 @@ public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, ApiResp
     public async Task<ApiResponse<List<UserResponse>>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
     {
         var list = await _dbContext.Set<User>()
+            .Include(x=>x.Expenses)
+            .Include(x=>x.Reports)
             .ToListAsync(cancellationToken);
         
         var mappedList = _mapper.Map<List<User>, List<UserResponse>>(list);
+       
         return new ApiResponse<List<UserResponse>>(mappedList);
     }
 }

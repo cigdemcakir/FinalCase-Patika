@@ -7,6 +7,7 @@ public class DeleteExpenseCommandValidator : AbstractValidator<DeleteExpenseComm
 {
     public DeleteExpenseCommandValidator()
     {
-        
+        RuleFor(x => x.Id)
+            .GreaterThan(0).WithMessage("Id must be a positive number.");
     }
 }

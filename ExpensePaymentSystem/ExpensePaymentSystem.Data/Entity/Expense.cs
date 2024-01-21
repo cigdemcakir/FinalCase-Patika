@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using ExpensePaymentSystem.Base.Entity;
 using ExpensePaymentSystem.Base.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -9,6 +8,7 @@ namespace ExpensePaymentSystem.Data.Entity;
 [Table("Expense", Schema = "dbo")]
 public class Expense 
 {
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ExpenseId { get; set; }
     public int UserId { get; set; }
     public decimal Amount { get; set; }
@@ -16,13 +16,12 @@ public class Expense
     public string Description { get; set; }
     public string Category { get; set; }
     public ExpenseStatus Status { get; set; } 
-    public string? RejectionReason { get; set; } // Reddedilme nedeni
+    public string? RejectionReason { get; set; } 
     public virtual User User { get; set; }
-    public int? PaymentId { get; set; } // Nullable, çünkü her masrafın bir ödemesi olmayabilir
+    public int? PaymentId { get; set; } 
     public virtual Payment Payment { get; set; }
     public int? ReportId { get; set; }
     public virtual Report Report { get; set; }
-    
 }
 
 public class ExpenseConfiguration : IEntityTypeConfiguration<Expense>

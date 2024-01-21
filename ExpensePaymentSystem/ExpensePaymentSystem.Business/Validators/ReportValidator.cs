@@ -1,11 +1,12 @@
 using ExpensePaymentSystem.Data.Entity;
+using ExpensePaymentSystem.Schema;
 using FluentValidation;
 
 namespace ExpensePaymentSystem.Business.Validators;
 
-public class ReportValidator : AbstractValidator<Report>
+public class ReportRequestValidator : AbstractValidator<ReportRequest>
 {
-    public ReportValidator()
+    public ReportRequestValidator()
     {
         RuleFor(report => report.StartDate)
             .NotEmpty().WithMessage("Start date is required.")
@@ -15,7 +16,11 @@ public class ReportValidator : AbstractValidator<Report>
             .NotEmpty().WithMessage("End date is required.")
             .GreaterThanOrEqualTo(r => r.StartDate).WithMessage("End date must be after or equal to the start date.");
 
-        RuleFor(report => report.UserId)
-            .GreaterThan(0).WithMessage("User ID must be greater than zero.");
+        When(x => x.UserId.HasValue, () =>
+        {
+            RuleFor(x => x.UserId.Value)
+                .GreaterThan(0).WithMessage("User ID must be a positive number.");
+        });
+
     }
 }

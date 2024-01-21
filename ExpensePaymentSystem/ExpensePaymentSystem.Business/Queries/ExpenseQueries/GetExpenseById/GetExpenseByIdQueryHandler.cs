@@ -27,11 +27,10 @@ public class GetExpenseByIdQueryHandler : IRequestHandler<GetExpenseByIdQuery, A
             .FirstOrDefaultAsync(x => x.ExpenseId == query.Id, cancellationToken);
 
         if (entity == null)
-        {
             return new ApiResponse<ExpenseResponse>("Record not found");
-        }
-        
+
         var mapped = _mapper.Map<Expense, ExpenseResponse>(entity);
+        
         return new ApiResponse<ExpenseResponse>(mapped);
     }
 }

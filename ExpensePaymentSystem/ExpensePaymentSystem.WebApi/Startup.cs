@@ -1,9 +1,10 @@
+using System.Net;
+using System.Net.Mail;
 using System.Reflection;
 using System.Text;
 using AutoMapper;
 using ExpensePaymentSystem.Base.Token;
 using ExpensePaymentSystem.Business.Commands.UserCommands.CreateUser;
-using ExpensePaymentSystem.Business.Cqrs;
 using ExpensePaymentSystem.Business.Interfaces;
 using ExpensePaymentSystem.Business.Mapper;
 using ExpensePaymentSystem.Business.Services;
@@ -11,11 +12,15 @@ using ExpensePaymentSystem.Business.Validators;
 using ExpensePaymentSystem.Data.DbContext;
 using ExpensePaymentSystem.WebApi.Middlewares;
 using FluentValidation.AspNetCore;
+using Hangfire;
+using Hangfire.PostgreSql;
+using Hangfire.SqlServer;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 
 namespace ExpensePaymentSystem.WebApi;
 
@@ -37,33 +42,45 @@ public class Startup
         
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateUserCommand).GetTypeInfo().Assembly));
 
-        // services.AddMediatR(cfg => {
-        //
-        //     cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-        //
-        // });
-
         var mapperConfig = new MapperConfiguration(cfg => cfg.AddProfile(new MapperConfig()));
         services.AddSingleton(mapperConfig.CreateMapper());
 
 
         services.AddControllers().AddFluentValidation(x =>
         {
-            x.RegisterValidatorsFromAssemblyContaining<ExpenseValidator>();
+            x.RegisterValidatorsFromAssemblyContaining<ExpenseRequestValidator>();
         });
-        
-        services.AddControllers();
 
+        services.AddControllers()
+            .AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+            });
+        
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        
+        
+        
+        services.AddMemoryCache();
+        
+        // Redis Configuration
+        var redisConfig = new ConfigurationOptions();
+        redisConfig.EndPoints.Add(Configuration["Redis:Host"],Convert.ToInt32(Configuration["Redis:Port"]));
+        redisConfig.DefaultDatabase = 0;
+        services.AddStackExchangeRedisCache(opt =>
+        {
+            opt.ConfigurationOptions = redisConfig;
+            opt.InstanceName = Configuration["Redis:InstanceName"];
+        });
 
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vb Api Management", Version = "v1.0" });
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Expense Payment System Api", Version = "v1.0" });
 
             var securityScheme = new OpenApiSecurityScheme
             {
-                Name = "Vb Management for IT Company",
+                Name = "Authorization",
                 Description = "Enter JWT Bearer token **_only_**",
                 In = ParameterLocation.Header,
                 Type = SecuritySchemeType.Http,
@@ -107,26 +124,65 @@ public class Startup
             };
         });
         
-        services.AddScoped<IAuthorizationService, AuthorizationService>();
+        services.AddHangfire(configuration => configuration
+            .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+            .UseSimpleAssemblyNameTypeSerializer()
+            .UseRecommendedSerializerSettings()
+            .UseSqlServerStorage(Configuration.GetConnectionString("HangfireSqlConnection"), new SqlServerStorageOptions()
+            {
+                InvisibilityTimeout = TimeSpan.FromMinutes(5),
+                QueuePollInterval = TimeSpan.FromMinutes(5),
+            }));
+        services.AddHangfireServer();
+        
+        services.AddTransient<SmtpClient>((serviceProvider) =>
+        {
+            return new SmtpClient
+            {
+                Host = Configuration["EmailSettings:Host"],
+                Port = int.Parse(Configuration["EmailSettings:Port"]),
+                EnableSsl = bool.Parse(Configuration["EmailSettings:EnableSsl"]),
+                Credentials = new NetworkCredential(
+                    Configuration["EmailSettings:Username"],
+                    Configuration["EmailSettings:Password"]
+                )
+            };
+        });
+
+        services.AddScoped<SeedData>();
         services.AddScoped<INotificationService, NotificationService>();
+        services.AddScoped<IPaymentSimulator, FakePaymentSimulator>();
+        services.AddScoped<IExcelService, ExcelService>();
+        
     }
     
-    public void Configure(IApplicationBuilder app,IWebHostEnvironment env)
+    public void Configure(IApplicationBuilder app,IWebHostEnvironment env, IServiceProvider serviceProvider)
     {
         if (env.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
             app.UseSwaggerUI();
+
+        }
+        
+        using (var scope = app.ApplicationServices.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            var seedDataService = services.GetRequiredService<SeedData>();
+            seedDataService.Initialize(serviceProvider);
         }
 
-        // app.UseMiddleware<HeartBeatMiddleware>(); 
         app.UseMiddleware<ErrorHandlerMiddleware>(); 
         
         app.UseHttpsRedirection();
 
-        //app.UseAuthentication();
+        app.UseHangfireDashboard();
+
         app.UseRouting();
+        
+        app.UseAuthentication();
+        
         app.UseAuthorization();
         
         app.UseEndpoints(x => { x.MapControllers(); });

@@ -25,12 +25,12 @@ public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, ApiRe
             .FirstOrDefaultAsync(cancellationToken);
         
         if (fromdb == null)
-        {
             return new ApiResponse("Record not found");
-        }
 
         fromdb.IsActive = false;
+        
         await _dbContext.SaveChangesAsync(cancellationToken);
+        
         return new ApiResponse();
     }
 }

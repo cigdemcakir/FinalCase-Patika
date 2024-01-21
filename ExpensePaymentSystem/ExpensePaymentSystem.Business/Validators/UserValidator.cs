@@ -1,54 +1,46 @@
+using System.Text.RegularExpressions;
 using ExpensePaymentSystem.Base.Enums;
 using ExpensePaymentSystem.Data.Entity;
+using ExpensePaymentSystem.Schema;
 using FluentValidation;
 
 namespace ExpensePaymentSystem.Business.Validators;
 
-public class UserValidator : AbstractValidator<User>
+public class UserRequestValidator : AbstractValidator<UserRequest>
 {
-    public UserValidator()
+    public UserRequestValidator()
     {
-        RuleFor(user => user.UserName)
+        RuleFor(x => x.UserName)
             .NotEmpty().WithMessage("Username is required.")
-            .MaximumLength(50).WithMessage("Username cannot be more than 50 characters.");
+            .Length(3, 50).WithMessage("Username must be between 3 and 50 characters.");
 
-        RuleFor(user => user.Password)
+        RuleFor(x => x.Password)
             .NotEmpty().WithMessage("Password is required.")
-            .MinimumLength(6).WithMessage("Password must be at least 6 characters long.")
-            .MaximumLength(250).WithMessage("Password cannot be more than 250 characters.");
+            .MinimumLength(6).WithMessage("Password must be at least 6 characters long.");
 
-        RuleFor(user => user.FirstName)
+        RuleFor(x => x.Role)
+            .IsInEnum().WithMessage("Invalid role.");
+
+        RuleFor(x => x.FirstName)
             .NotEmpty().WithMessage("First name is required.")
-            .MaximumLength(50).WithMessage("First name cannot be more than 50 characters.");
+            .Length(1, 50).WithMessage("First name must be between 1 and 50 characters.");
 
-        RuleFor(user => user.LastName)
+        RuleFor(x => x.LastName)
             .NotEmpty().WithMessage("Last name is required.")
-            .MaximumLength(50).WithMessage("Last name cannot be more than 50 characters.");
+            .Length(1, 50).WithMessage("Last name must be between 1 and 50 characters.");
 
-        RuleFor(user => user.Email)
+        RuleFor(x => x.Email)
             .NotEmpty().WithMessage("Email is required.")
-            .EmailAddress().WithMessage("A valid email is required.")
-            .MaximumLength(50).WithMessage("Email cannot be more than 50 characters.");
+            .EmailAddress().WithMessage("Invalid email address.");
 
-        RuleFor(user => user.PhoneNumber)
+        RuleFor(x => x.PhoneNumber)
             .NotEmpty().WithMessage("Phone number is required.")
-            .MaximumLength(20).WithMessage("Phone number cannot be more than 20 characters.");
+            .Matches(new Regex(@"^\+?\d{10,15}$")).WithMessage("Invalid phone number.");
 
-        When(user => user.Role == UserRole.Employee, () =>
+        When(x => x.IBAN != null, () =>
         {
-            RuleFor(user => user.IBAN)
-                .NotEmpty().WithMessage("IBAN is required for employees.")
-                .Length(34).WithMessage("IBAN must be 34 characters long.");
+            RuleFor(x => x.IBAN)
+                .Matches(new Regex(@"^TR\d{2}[a-zA-Z0-9]{16,26}$")).WithMessage("Invalid IBAN.");
         });
-
-        RuleFor(user => user.LastActivityDate)
-            .NotEmpty().WithMessage("Last activity date is required.")
-            .LessThanOrEqualTo(DateTime.Now).WithMessage("Last activity date cannot be in the future.");
-
-        RuleFor(user => user.PasswordRetryCount)
-            .GreaterThanOrEqualTo(0).WithMessage("Password retry count cannot be negative.");
-
-        RuleFor(user => user.IsActive)
-            .NotNull().WithMessage("IsActive flag is required.");
     }
 }

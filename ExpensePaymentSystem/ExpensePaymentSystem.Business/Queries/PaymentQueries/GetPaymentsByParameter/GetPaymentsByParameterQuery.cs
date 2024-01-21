@@ -11,9 +11,9 @@ public class GetPaymentsByParameterQuery : IRequest<ApiResponse<List<PaymentResp
     
     public DateTime? PaymentDate { get; set; }
     
-    public string? PaymentMethod { get; set; }
+    public PaymentMethod? PaymentMethod { get; set; }
 
-    public GetPaymentsByParameterQuery(decimal? amount = null, DateTime? paymentDate = null, string? paymentMethod = null)
+    public GetPaymentsByParameterQuery(decimal? amount = null, DateTime? paymentDate = null, PaymentMethod? paymentMethod = null)
     {
         PaymentDate = paymentDate;
         Amount = amount;
