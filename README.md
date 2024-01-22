@@ -179,3 +179,40 @@ Hangfire: Background job processing.
 
 
 <br/>
+
+### :small_blue_diamond: Configuration Instructions for the Expense-Payment System
+
+You will need to configure several settings to ensure the system operates correctly. Please follow these instructions to update your appsettings.json file:
+
+-Connection Strings
+
+Update the connection strings for your SQL Server / PostgreSQL, and Hangfire databases. These strings are essential for the application to connect to your databases.
+
+"ConnectionStrings": {
+  "MsSqlConnection": "[Your SQL Server connection string here]",
+  "PostgresSqlConnection": "[Your PostgreSQL connection string here]",
+  "HangfireSqlConnection": "[Your Hangfire database connection string here]"
+},
+
+-JWT (JSON Web Token) Configuration
+
+Set up your JWT authentication:
+
+"JwtConfig": {
+  "Secret": "[A secure, long, random string as your JWT secret]",
+  "Issuer": "ExpensePaymentSystem",
+  "Audience": "ExpensePaymentSystem",
+  "AccessTokenExpiration": 20
+},
+
+-Email Settings
+Configure the email settings for notifications:
+
+"EmailSettings": {
+  "Host": "smtp.gmail.com",
+  "Port": 587,
+  "EnableSsl": true,
+  "Username": "[Your email username]",
+  "Password": "[Your email password]",
+  "FromAddress": "[Your email]"
+},
