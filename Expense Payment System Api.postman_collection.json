@@ -1,0 +1,2721 @@
+{
+	"info": {
+		"_postman_id": "010e71d3-497a-42ae-b31b-9ffe948151ba",
+		"name": "Expense Payment System Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31010328"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Expense",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "approve",
+									"item": [
+										{
+											"name": "/api/Expense/:id/approve",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Expense/:id/approve",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Expense",
+														":id",
+														"approve"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "//api/Expense/:id/approve",
+															"path": [
+																"",
+																"api",
+																"Expense",
+																":id",
+																"approve"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "reject",
+									"item": [
+										{
+											"name": "/api/Expense/:id/reject",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<string>",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Expense/:id/reject",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Expense",
+														":id",
+														"reject"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "<string>",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "//api/Expense/:id/reject",
+															"path": [
+																"",
+																"api",
+																"Expense",
+																":id",
+																"reject"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "/api/Expense/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Expense/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Expense",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "//api/Expense/:id",
+													"path": [
+														"",
+														"api",
+														"Expense",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"expenseId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"date\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"category\": \"<string>\",\n    \"status\": \"Pending\",\n    \"rejectionReason\": \"<string>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Expense/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"amount\": \"<double>\",\n  \"date\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"status\": \"Approved\",\n  \"category\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Expense/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Expense",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"<integer>\",\n  \"amount\": \"<double>\",\n  \"date\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"status\": \"Approved\",\n  \"category\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "//api/Expense/:id",
+													"path": [
+														"",
+														"api",
+														"Expense",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"expenseId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"date\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"category\": \"<string>\",\n    \"status\": \"Pending\",\n    \"rejectionReason\": \"<string>\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Expense/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Expense/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Expense",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "//api/Expense/:id",
+													"path": [
+														"",
+														"api",
+														"Expense",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ByRedis",
+							"item": [
+								{
+									"name": "{Category}",
+									"item": [
+										{
+											"name": "/api/Expense/ByRedis/:Category",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Expense/ByRedis/:Category",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Expense",
+														"ByRedis",
+														":Category"
+													],
+													"variable": [
+														{
+															"key": "Category",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "//api/Expense/ByRedis/:Category",
+															"path": [
+																"",
+																"api",
+																"Expense",
+																"ByRedis",
+																":Category"
+															],
+															"variable": [
+																{
+																	"key": "Category"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    },\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ByMemory",
+							"item": [
+								{
+									"name": "{Category}",
+									"item": [
+										{
+											"name": "/api/Expense/ByMemory/:Category",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Expense/ByMemory/:Category",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Expense",
+														"ByMemory",
+														":Category"
+													],
+													"variable": [
+														{
+															"key": "Category",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															},
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "//api/Expense/ByMemory/:Category",
+															"path": [
+																"",
+																"api",
+																"Expense",
+																"ByMemory",
+																":Category"
+															],
+															"variable": [
+																{
+																	"key": "Category"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    },\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "parameter",
+							"item": [
+								{
+									"name": "/api/Expense/parameter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Expense/parameter?userId=<integer>&status=Approved&amount=<double>&date=<dateTime>&category=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Expense",
+												"parameter"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "<integer>"
+												},
+												{
+													"key": "status",
+													"value": "Approved"
+												},
+												{
+													"key": "amount",
+													"value": "<double>"
+												},
+												{
+													"key": "date",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "category",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "//api/Expense/parameter?userId=<integer>&status=Approved&amount=<double>&date=<dateTime>&category=<string>",
+													"path": [
+														"",
+														"api",
+														"Expense",
+														"parameter"
+													],
+													"query": [
+														{
+															"key": "userId",
+															"value": "<integer>"
+														},
+														{
+															"key": "status",
+															"value": "Approved"
+														},
+														{
+															"key": "amount",
+															"value": "<double>"
+														},
+														{
+															"key": "date",
+															"value": "<dateTime>"
+														},
+														{
+															"key": "category",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    },\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "active",
+							"item": [
+								{
+									"name": "/api/Expense/active",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Expense/active",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Expense",
+												"active"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "//api/Expense/active",
+													"path": [
+														"",
+														"api",
+														"Expense",
+														"active"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    },\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "past",
+							"item": [
+								{
+									"name": "/api/Expense/past",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Expense/past",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Expense",
+												"past"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "//api/Expense/past",
+													"path": [
+														"",
+														"api",
+														"Expense",
+														"past"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    },\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Expense",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Expense",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Expense"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "//api/Expense",
+											"path": [
+												"",
+												"api",
+												"Expense"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    },\n    {\n      \"expenseId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"date\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"category\": \"<string>\",\n      \"status\": \"Pending\",\n      \"rejectionReason\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Expense",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userId\": \"<integer>\",\n  \"amount\": \"<double>\",\n  \"date\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"status\": \"Approved\",\n  \"category\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Expense",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Expense"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"amount\": \"<double>\",\n  \"date\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"status\": \"Approved\",\n  \"category\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "//api/Expense",
+											"path": [
+												"",
+												"api",
+												"Expense"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"expenseId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"date\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"category\": \"<string>\",\n    \"status\": \"Pending\",\n    \"rejectionReason\": \"<string>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "payments",
+					"item": [
+						{
+							"name": "parameter",
+							"item": [
+								{
+									"name": "/api/payments/parameter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/payments/parameter?amount=<double>&paymentDate=<dateTime>&paymentMethod=Cash",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"payments",
+												"parameter"
+											],
+											"query": [
+												{
+													"key": "amount",
+													"value": "<double>"
+												},
+												{
+													"key": "paymentDate",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "paymentMethod",
+													"value": "Cash"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "//api/payments/parameter?amount=<double>&paymentDate=<dateTime>&paymentMethod=Cash",
+													"path": [
+														"",
+														"api",
+														"payments",
+														"parameter"
+													],
+													"query": [
+														{
+															"key": "amount",
+															"value": "<double>"
+														},
+														{
+															"key": "paymentDate",
+															"value": "<dateTime>"
+														},
+														{
+															"key": "paymentMethod",
+															"value": "Cash"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"paymentId\": \"<integer>\",\n      \"expenseId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"paymentDate\": \"<dateTime>\",\n      \"paymentMethod\": \"MobilePayment\"\n    },\n    {\n      \"paymentId\": \"<integer>\",\n      \"expenseId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"paymentDate\": \"<dateTime>\",\n      \"paymentMethod\": \"BankTransfer\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "{paymentId}",
+							"item": [
+								{
+									"name": "/api/payments/:paymentId",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/payments/:paymentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"payments",
+												":paymentId"
+											],
+											"variable": [
+												{
+													"key": "paymentId",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "//api/payments/:paymentId",
+													"path": [
+														"",
+														"api",
+														"payments",
+														":paymentId"
+													],
+													"variable": [
+														{
+															"key": "paymentId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"paymentId\": \"<integer>\",\n    \"expenseId\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"paymentDate\": \"<dateTime>\",\n    \"paymentMethod\": \"Check\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/payments/:paymentId",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"expenseId\": \"<integer>\",\n  \"paymentMethod\": \"BankTransfer\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/payments/:paymentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"payments",
+												":paymentId"
+											],
+											"variable": [
+												{
+													"key": "paymentId",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"expenseId\": \"<integer>\",\n  \"paymentMethod\": \"BankTransfer\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "//api/payments/:paymentId",
+													"path": [
+														"",
+														"api",
+														"payments",
+														":paymentId"
+													],
+													"variable": [
+														{
+															"key": "paymentId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"paymentId\": \"<integer>\",\n    \"expenseId\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"paymentDate\": \"<dateTime>\",\n    \"paymentMethod\": \"Check\"\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/payments/:paymentId",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/payments/:paymentId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"payments",
+												":paymentId"
+											],
+											"variable": [
+												{
+													"key": "paymentId",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "//api/payments/:paymentId",
+													"path": [
+														"",
+														"api",
+														"payments",
+														":paymentId"
+													],
+													"variable": [
+														{
+															"key": "paymentId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/payments",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "//api/payments",
+											"path": [
+												"",
+												"api",
+												"payments"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"paymentId\": \"<integer>\",\n      \"expenseId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"paymentDate\": \"<dateTime>\",\n      \"paymentMethod\": \"MobilePayment\"\n    },\n    {\n      \"paymentId\": \"<integer>\",\n      \"expenseId\": \"<integer>\",\n      \"amount\": \"<double>\",\n      \"paymentDate\": \"<dateTime>\",\n      \"paymentMethod\": \"BankTransfer\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/payments",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"expenseId\": \"<integer>\",\n  \"paymentMethod\": \"BankTransfer\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"payments"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"expenseId\": \"<integer>\",\n  \"paymentMethod\": \"BankTransfer\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "//api/payments",
+											"path": [
+												"",
+												"api",
+												"payments"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"paymentId\": \"<integer>\",\n    \"expenseId\": \"<integer>\",\n    \"amount\": \"<double>\",\n    \"paymentDate\": \"<dateTime>\",\n    \"paymentMethod\": \"Check\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Report",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "/api/Report/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Report/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Report",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Report/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Report",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"reportId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"totalExpense\": \"<double>\",\n    \"totalPayment\": \"<double>\",\n    \"expenses\": [\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Approved\",\n        \"rejectionReason\": \"<string>\"\n      },\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Approved\",\n        \"rejectionReason\": \"<string>\"\n      }\n    ]\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Report/:id",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Report/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Report",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"<integer>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Report/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Report",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"reportId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"totalExpense\": \"<double>\",\n    \"totalPayment\": \"<double>\",\n    \"expenses\": [\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Approved\",\n        \"rejectionReason\": \"<string>\"\n      },\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Approved\",\n        \"rejectionReason\": \"<string>\"\n      }\n    ]\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/Report/:id",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Report/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Report",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Report/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Report",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "ByParameters",
+							"item": [
+								{
+									"name": "/api/Report/ByParameters",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Report/ByParameters?startDate=<dateTime>&endDate=<dateTime>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Report",
+												"ByParameters"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "endDate",
+													"value": "<dateTime>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Report/ByParameters?startDate=<dateTime>&endDate=<dateTime>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Report",
+														"ByParameters"
+													],
+													"query": [
+														{
+															"key": "startDate",
+															"value": "<dateTime>"
+														},
+														{
+															"key": "endDate",
+															"value": "<dateTime>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"reportId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"startDate\": \"<dateTime>\",\n      \"endDate\": \"<dateTime>\",\n      \"totalExpense\": \"<double>\",\n      \"totalPayment\": \"<double>\",\n      \"expenses\": [\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Pending\",\n          \"rejectionReason\": \"<string>\"\n        },\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Pending\",\n          \"rejectionReason\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"reportId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"startDate\": \"<dateTime>\",\n      \"endDate\": \"<dateTime>\",\n      \"totalExpense\": \"<double>\",\n      \"totalPayment\": \"<double>\",\n      \"expenses\": [\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Approved\",\n          \"rejectionReason\": \"<string>\"\n        },\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Rejected\",\n          \"rejectionReason\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "download-report",
+							"item": [
+								{
+									"name": "/api/Report/download-report",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Report/download-report",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Report",
+												"download-report"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Report/download-report",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Report",
+														"download-report"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Report",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Report",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Report"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Report",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Report"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"reportId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"startDate\": \"<dateTime>\",\n      \"endDate\": \"<dateTime>\",\n      \"totalExpense\": \"<double>\",\n      \"totalPayment\": \"<double>\",\n      \"expenses\": [\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Pending\",\n          \"rejectionReason\": \"<string>\"\n        },\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Pending\",\n          \"rejectionReason\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"reportId\": \"<integer>\",\n      \"userId\": \"<integer>\",\n      \"startDate\": \"<dateTime>\",\n      \"endDate\": \"<dateTime>\",\n      \"totalExpense\": \"<double>\",\n      \"totalPayment\": \"<double>\",\n      \"expenses\": [\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Approved\",\n          \"rejectionReason\": \"<string>\"\n        },\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Rejected\",\n          \"rejectionReason\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Report",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userId\": \"<integer>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Report",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Report"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Report",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Report"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"reportId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"startDate\": \"<dateTime>\",\n    \"endDate\": \"<dateTime>\",\n    \"totalExpense\": \"<double>\",\n    \"totalPayment\": \"<double>\",\n    \"expenses\": [\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Approved\",\n        \"rejectionReason\": \"<string>\"\n      },\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Approved\",\n        \"rejectionReason\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Token",
+					"item": [
+						{
+							"name": "/api/Token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userName\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Token",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Token"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userName\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Token",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Token"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"expireDate\": \"<dateTime>\",\n    \"token\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "/api/users/:userId",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"userId\": \"<integer>\",\n    \"userName\": \"<string>\",\n    \"role\": \"Admin\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"iban\": \"<string>\",\n    \"lastActivityDate\": \"<dateTime>\",\n    \"isActive\": \"<boolean>\",\n    \"expenses\": [\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Rejected\",\n        \"rejectionReason\": \"<string>\"\n      },\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Rejected\",\n        \"rejectionReason\": \"<string>\"\n      }\n    ],\n    \"reports\": [\n      {\n        \"reportId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"startDate\": \"<dateTime>\",\n        \"endDate\": \"<dateTime>\",\n        \"totalExpense\": \"<double>\",\n        \"totalPayment\": \"<double>\",\n        \"expenses\": [\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Approved\",\n            \"rejectionReason\": \"<string>\"\n          },\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Rejected\",\n            \"rejectionReason\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"reportId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"startDate\": \"<dateTime>\",\n        \"endDate\": \"<dateTime>\",\n        \"totalExpense\": \"<double>\",\n        \"totalPayment\": \"<double>\",\n        \"expenses\": [\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Rejected\",\n            \"rejectionReason\": \"<string>\"\n          },\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Approved\",\n            \"rejectionReason\": \"<string>\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/users/:userId",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"Employee\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"iban\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"Employee\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"iban\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"userId\": \"<integer>\",\n    \"userName\": \"<string>\",\n    \"role\": \"Admin\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"iban\": \"<string>\",\n    \"lastActivityDate\": \"<dateTime>\",\n    \"isActive\": \"<boolean>\",\n    \"expenses\": [\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Rejected\",\n        \"rejectionReason\": \"<string>\"\n      },\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Rejected\",\n        \"rejectionReason\": \"<string>\"\n      }\n    ],\n    \"reports\": [\n      {\n        \"reportId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"startDate\": \"<dateTime>\",\n        \"endDate\": \"<dateTime>\",\n        \"totalExpense\": \"<double>\",\n        \"totalPayment\": \"<double>\",\n        \"expenses\": [\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Approved\",\n            \"rejectionReason\": \"<string>\"\n          },\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Rejected\",\n            \"rejectionReason\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"reportId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"startDate\": \"<dateTime>\",\n        \"endDate\": \"<dateTime>\",\n        \"totalExpense\": \"<double>\",\n        \"totalPayment\": \"<double>\",\n        \"expenses\": [\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Rejected\",\n            \"rejectionReason\": \"<string>\"\n          },\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Approved\",\n            \"rejectionReason\": \"<string>\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "/api/users/:userId",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "parameter",
+							"item": [
+								{
+									"name": "/api/users/parameter",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/parameter?userName=<string>&firstName=<string>&lastName=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"parameter"
+											],
+											"query": [
+												{
+													"key": "userName",
+													"value": "<string>"
+												},
+												{
+													"key": "firstName",
+													"value": "<string>"
+												},
+												{
+													"key": "lastName",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/parameter?userName=<string>&firstName=<string>&lastName=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"parameter"
+													],
+													"query": [
+														{
+															"key": "userName",
+															"value": "<string>"
+														},
+														{
+															"key": "firstName",
+															"value": "<string>"
+														},
+														{
+															"key": "lastName",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"userId\": \"<integer>\",\n      \"userName\": \"<string>\",\n      \"role\": \"Admin\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"iban\": \"<string>\",\n      \"lastActivityDate\": \"<dateTime>\",\n      \"isActive\": \"<boolean>\",\n      \"expenses\": [\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Rejected\",\n          \"rejectionReason\": \"<string>\"\n        },\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Rejected\",\n          \"rejectionReason\": \"<string>\"\n        }\n      ],\n      \"reports\": [\n        {\n          \"reportId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"startDate\": \"<dateTime>\",\n          \"endDate\": \"<dateTime>\",\n          \"totalExpense\": \"<double>\",\n          \"totalPayment\": \"<double>\",\n          \"expenses\": [\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            },\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"reportId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"startDate\": \"<dateTime>\",\n          \"endDate\": \"<dateTime>\",\n          \"totalExpense\": \"<double>\",\n          \"totalPayment\": \"<double>\",\n          \"expenses\": [\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            },\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Approved\",\n              \"rejectionReason\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"userId\": \"<integer>\",\n      \"userName\": \"<string>\",\n      \"role\": \"Employee\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"iban\": \"<string>\",\n      \"lastActivityDate\": \"<dateTime>\",\n      \"isActive\": \"<boolean>\",\n      \"expenses\": [\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Pending\",\n          \"rejectionReason\": \"<string>\"\n        },\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Rejected\",\n          \"rejectionReason\": \"<string>\"\n        }\n      ],\n      \"reports\": [\n        {\n          \"reportId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"startDate\": \"<dateTime>\",\n          \"endDate\": \"<dateTime>\",\n          \"totalExpense\": \"<double>\",\n          \"totalPayment\": \"<double>\",\n          \"expenses\": [\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            },\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"reportId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"startDate\": \"<dateTime>\",\n          \"endDate\": \"<dateTime>\",\n          \"totalExpense\": \"<double>\",\n          \"totalPayment\": \"<double>\",\n          \"expenses\": [\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Rejected\",\n              \"rejectionReason\": \"<string>\"\n            },\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Approved\",\n              \"rejectionReason\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": [\n    {\n      \"userId\": \"<integer>\",\n      \"userName\": \"<string>\",\n      \"role\": \"Admin\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"iban\": \"<string>\",\n      \"lastActivityDate\": \"<dateTime>\",\n      \"isActive\": \"<boolean>\",\n      \"expenses\": [\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Rejected\",\n          \"rejectionReason\": \"<string>\"\n        },\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Rejected\",\n          \"rejectionReason\": \"<string>\"\n        }\n      ],\n      \"reports\": [\n        {\n          \"reportId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"startDate\": \"<dateTime>\",\n          \"endDate\": \"<dateTime>\",\n          \"totalExpense\": \"<double>\",\n          \"totalPayment\": \"<double>\",\n          \"expenses\": [\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            },\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"reportId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"startDate\": \"<dateTime>\",\n          \"endDate\": \"<dateTime>\",\n          \"totalExpense\": \"<double>\",\n          \"totalPayment\": \"<double>\",\n          \"expenses\": [\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            },\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Approved\",\n              \"rejectionReason\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"userId\": \"<integer>\",\n      \"userName\": \"<string>\",\n      \"role\": \"Employee\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"iban\": \"<string>\",\n      \"lastActivityDate\": \"<dateTime>\",\n      \"isActive\": \"<boolean>\",\n      \"expenses\": [\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Pending\",\n          \"rejectionReason\": \"<string>\"\n        },\n        {\n          \"expenseId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"amount\": \"<double>\",\n          \"date\": \"<dateTime>\",\n          \"description\": \"<string>\",\n          \"category\": \"<string>\",\n          \"status\": \"Rejected\",\n          \"rejectionReason\": \"<string>\"\n        }\n      ],\n      \"reports\": [\n        {\n          \"reportId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"startDate\": \"<dateTime>\",\n          \"endDate\": \"<dateTime>\",\n          \"totalExpense\": \"<double>\",\n          \"totalPayment\": \"<double>\",\n          \"expenses\": [\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            },\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Pending\",\n              \"rejectionReason\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"reportId\": \"<integer>\",\n          \"userId\": \"<integer>\",\n          \"startDate\": \"<dateTime>\",\n          \"endDate\": \"<dateTime>\",\n          \"totalExpense\": \"<double>\",\n          \"totalPayment\": \"<double>\",\n          \"expenses\": [\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Rejected\",\n              \"rejectionReason\": \"<string>\"\n            },\n            {\n              \"expenseId\": \"<integer>\",\n              \"userId\": \"<integer>\",\n              \"amount\": \"<double>\",\n              \"date\": \"<dateTime>\",\n              \"description\": \"<string>\",\n              \"category\": \"<string>\",\n              \"status\": \"Approved\",\n              \"rejectionReason\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/users",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"Employee\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"iban\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"role\": \"Employee\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"iban\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"serverDate\": \"<dateTime>\",\n  \"referenceNo\": \"<uuid>\",\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"response\": {\n    \"userId\": \"<integer>\",\n    \"userName\": \"<string>\",\n    \"role\": \"Admin\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"iban\": \"<string>\",\n    \"lastActivityDate\": \"<dateTime>\",\n    \"isActive\": \"<boolean>\",\n    \"expenses\": [\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Rejected\",\n        \"rejectionReason\": \"<string>\"\n      },\n      {\n        \"expenseId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"amount\": \"<double>\",\n        \"date\": \"<dateTime>\",\n        \"description\": \"<string>\",\n        \"category\": \"<string>\",\n        \"status\": \"Rejected\",\n        \"rejectionReason\": \"<string>\"\n      }\n    ],\n    \"reports\": [\n      {\n        \"reportId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"startDate\": \"<dateTime>\",\n        \"endDate\": \"<dateTime>\",\n        \"totalExpense\": \"<double>\",\n        \"totalPayment\": \"<double>\",\n        \"expenses\": [\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Approved\",\n            \"rejectionReason\": \"<string>\"\n          },\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Rejected\",\n            \"rejectionReason\": \"<string>\"\n          }\n        ]\n      },\n      {\n        \"reportId\": \"<integer>\",\n        \"userId\": \"<integer>\",\n        \"startDate\": \"<dateTime>\",\n        \"endDate\": \"<dateTime>\",\n        \"totalExpense\": \"<double>\",\n        \"totalPayment\": \"<double>\",\n        \"expenses\": [\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Rejected\",\n            \"rejectionReason\": \"<string>\"\n          },\n          {\n            \"expenseId\": \"<integer>\",\n            \"userId\": \"<integer>\",\n            \"amount\": \"<double>\",\n            \"date\": \"<dateTime>\",\n            \"description\": \"<string>\",\n            \"category\": \"<string>\",\n            \"status\": \"Approved\",\n            \"rejectionReason\": \"<string>\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}

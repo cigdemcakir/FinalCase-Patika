@@ -155,7 +155,7 @@ public class ExpenseController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "Personel")]
+    [Authorize(Roles = "Employee")]
     public async Task<ApiResponse<ExpenseResponse>> Put(int id, [FromBody] ExpenseRequest Expense)
     {
         var operation = new UpdateExpenseCommand(id, Expense);

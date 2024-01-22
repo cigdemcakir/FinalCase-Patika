@@ -1,3 +1,4 @@
+using ExpensePaymentSystem.Base.Encryption;
 using ExpensePaymentSystem.Base.Enums;
 using ExpensePaymentSystem.Data.Entity;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +26,7 @@ public class SeedData
         var adminUser = new User
         {
             UserName = "admin",
-            Password = "admin123",
+            Password = "admin",
             Role = UserRole.Admin,
             FirstName = "Admin",
             LastName = "User",
@@ -40,7 +41,7 @@ public class SeedData
         var employeeUser = new User
         {
             UserName = "employee",
-            Password = "employee123",
+            Password = "employee",
             Role = UserRole.Employee,
             FirstName = "Employee",
             LastName = "User",
@@ -51,6 +52,9 @@ public class SeedData
             IsActive = true,
             IBAN = "TR6680167979382566076960"
         };
+        
+        adminUser.Password = Md5Extension.GetHash(adminUser.Password.Trim());
+        employeeUser.Password = Md5Extension.GetHash(employeeUser.Password.Trim());
 
         _dbContext.Users.AddRange(adminUser, employeeUser);
         _dbContext.SaveChanges();
