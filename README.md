@@ -107,9 +107,15 @@ Company-Wide Reporting: Admins have access to daily, weekly, and monthly spendin
 
 Detailed Expense Submission: Personnel can submit expenses with detailed categorization, including receipts or invoices.
 
+<img width="1399" alt="Screenshot 2024-01-22 at 08 45 28" src="https://github.com/cigdemcakir/FinalCase-Patika/assets/102484836/ae85564e-22d0-48e3-9748-4f6e37a2fe9b">
+
+
 ✓ **Administrator Operations**
 
 Initial Setup: The system is initialized with a minimum of two admin users.
+
+<img width="1411" alt="Screenshot 2024-01-22 at 08 50 23" src="https://github.com/cigdemcakir/FinalCase-Patika/assets/102484836/1c34855f-fa57-46e5-bba1-ab59ab3a7250">
+
 
 User Management: Admins manage personnel profiles.
 
